@@ -1144,15 +1144,13 @@ footer.et-l--footer,
 
 /* ---- Filas por encima del video, ancho editorial, alineadas a la izquierda ---- */
 #page-container .et_pb_section_0 .et_pb_row_0,
-#page-container .et_pb_section_0 .et_pb_row_1,
-#page-container .et_pb_section_0 .mh-hero-extra{
+#page-container .et_pb_section_0 .et_pb_row_1{
   position:relative;z-index:5;
   width:92%!important;max-width:1180px!important;
   margin:0 auto!important;padding:0!important;
 }
 #page-container .et_pb_section_0 .et_pb_row_1{order:1;}
 #page-container .et_pb_section_0 .et_pb_row_0{order:2;}
-#page-container .et_pb_section_0 .mh-hero-extra{order:3;margin-top:clamp(26px,4vh,44px)!important;}
 
 /* columnas vacías 20/60/20 -> fuera; la del medio a ancho completo */
 #page-container .et_pb_section_0 .et_pb_column_1,
@@ -1205,25 +1203,6 @@ footer.et-l--footer,
 }
 #page-container .et_pb_section_0 .et_pb_text_1:hover{background:rgba(255,255,255,.82)!important;transform:none!important;}
 
-/* ---- Fila "proceso" (equivalente al 'backed by') ---- */
-.mh-hero-extra-label{
-  display:block;
-  font-family:var(--mh-hn);
-  font-size:11px;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--mh-ink-soft);
-  margin:0 0 16px 0;
-}
-.mh-hero-extra-row{
-  display:flex;flex-wrap:wrap;align-items:baseline;
-  gap:clamp(16px,4vw,56px);
-}
-.mh-hero-extra-row span{
-  font-family:var(--mh-serif);
-  font-size:clamp(17px,2.3vw,25px);
-  color:rgba(17,17,17,.72);
-  letter-spacing:.01em;white-space:nowrap;
-}
-
 /* ---- Divisor inferior de Divi: molesta sobre el video ---- */
 #page-container .et_pb_section_0 .et_pb_bottom_inside_divider{display:none!important;}
 
@@ -1231,7 +1210,6 @@ footer.et-l--footer,
 @media (prefers-reduced-motion:no-preference){
   #page-container .et_pb_section_0 .et_pb_text_1{animation:mh-rise .8s cubic-bezier(.16,1,.3,1) .15s both;}
   #page-container .et_pb_section_0 .et_pb_text_0{animation:mh-rise .8s cubic-bezier(.16,1,.3,1) .30s both;}
-  #page-container .et_pb_section_0 .mh-hero-extra{animation:mh-rise .8s cubic-bezier(.16,1,.3,1) .45s both;}
 }
 
 /* ---- Móvil ---- */
@@ -1495,15 +1473,6 @@ footer.et-l--footer,
 				
 			</div>
 				
-				<div class="mh-hero-extra">
-					<span class="mh-hero-extra-label">Nuestro proceso</span>
-					<div class="mh-hero-extra-row">
-						<span>Diseño</span>
-						<span>Fabricación</span>
-						<span>Montaje</span>
-						<span>Entrega</span>
-					</div>
-				</div>
 				<div class="et_pb_bottom_inside_divider et-no-transition"></div>
 			</div><div class="et_pb_section et_pb_section_1 et_pb_with_background et_section_regular" >
 				
