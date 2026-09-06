@@ -1336,8 +1336,13 @@ footer.et-l--footer,
   #main-header .container.et_menu_container{width:94%!important;}
 }
 
-/* Oculta el badge/aviso de Google reCAPTCHA */
-.grecaptcha-badge{display:none!important;visibility:hidden!important;}
+/* Oculta el badge/aviso de Google reCAPTCHA y widgets residuales */
+.grecaptcha-badge,
+iframe[src*="recaptcha"],
+iframe[title*="recaptcha" i],
+div[style*="z-index: 2000000000"],
+.et-core-modal-overlay,
+#wpadminbar{display:none!important;visibility:hidden!important;}
 </style>
 
 </head>
