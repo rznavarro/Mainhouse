@@ -1600,6 +1600,216 @@ div[style*="z-index: 2000000000"],
 }
 </style>
 
+<style id="mainhouse-contact-footer">
+/* ============================================================
+   MAIN HOUSE — Contacto + Footer (rediseno editorial)
+   Bloque unico y reversible: borrar este <style> y restaurar
+   las secciones Divi originales de contacto/footer.
+   ============================================================ */
+
+/* Neutraliza contenedores Divi del bloque de contacto */
+#page-container .et_pb_section_9,
+#page-container .et_pb_section_10{
+  padding:0!important;margin:0!important;background:none!important;background-image:none!important;
+}
+
+/* ---------- SECCION CONTACTO ---------- */
+.mh-contact{
+  background:var(--mh-paper);
+  padding:clamp(64px,9vw,110px) 0;
+  font-family:var(--mh-sans),system-ui,sans-serif;
+  overflow-x:clip;
+}
+#page-container .mh-contact *,#page-container .mh-footer *{max-width:100%;}
+#page-container .mh-contact-formcard form,
+#page-container .mh-contact-formcard .et_pb_contact,
+#page-container .mh-contact-formcard .et_pb_contact_form,
+#page-container .mh-contact-formcard .et_pb_contact_field{
+  width:100%!important;max-width:100%!important;box-sizing:border-box!important;float:none!important;margin-left:0!important;margin-right:0!important;
+}
+.mh-contact-inner{
+  width:92%;max-width:1180px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,6vw,88px);
+  align-items:start;
+}
+.mh-contact-info,.mh-contact-formcard{min-width:0;}
+.mh-contact-title{overflow-wrap:break-word;}
+.mh-contact-eyebrow{
+  display:inline-block;font-size:12px;font-weight:600;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--mh-gold);margin-bottom:18px;
+}
+.mh-contact-title{
+  font-family:var(--mh-serif),Georgia,serif;
+  font-weight:600;font-size:clamp(34px,4.6vw,56px);line-height:1.08;
+  letter-spacing:-.01em;color:var(--mh-ink);margin:0 0 16px;
+}
+.mh-contact-title em{font-style:italic;color:var(--mh-gold);}
+.mh-contact-sub{
+  font-size:16px;line-height:1.6;color:var(--mh-ink-soft);
+  max-width:34ch;margin:0 0 34px;
+}
+.mh-contact-list{list-style:none;margin:0 0 30px;padding:0;display:flex;flex-direction:column;gap:20px;}
+.mh-contact-list li{display:flex;gap:16px;align-items:flex-start;}
+.mh-contact-ico{
+  flex:0 0 auto;width:42px;height:42px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(180,154,108,.14);color:var(--mh-gold);
+}
+.mh-contact-ico svg{width:20px;height:20px;}
+.mh-contact-data{display:flex;flex-direction:column;gap:2px;padding-top:2px;}
+.mh-contact-k{
+  font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--mh-stone);margin-bottom:3px;
+}
+.mh-contact-data a,.mh-contact-v{
+  font-family:var(--mh-mono),ui-monospace,monospace;
+  font-size:15px;color:var(--mh-ink);text-decoration:none;letter-spacing:.01em;
+}
+.mh-contact-data a:hover{color:var(--mh-walnut);}
+
+/* Tarjeta WhatsApp */
+.mh-contact-wa{
+  display:block;text-decoration:none;
+  border:1px solid rgba(180,154,108,.35);
+  background:rgba(180,154,108,.10);
+  border-radius:16px;padding:22px 24px;
+  transition:background-color .25s ease,transform .2s ease,box-shadow .25s ease;
+}
+.mh-contact-wa:hover{background:rgba(180,154,108,.16);transform:translateY(-2px);box-shadow:0 14px 30px rgba(90,70,54,.12);}
+.mh-contact-wa-h{display:block;font-size:15px;font-weight:700;color:var(--mh-walnut);margin-bottom:6px;}
+.mh-contact-wa-p{display:block;font-size:14px;line-height:1.5;color:var(--mh-ink-soft);margin-bottom:12px;}
+.mh-contact-wa-cta{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--mh-ink);letter-spacing:.02em;}
+.mh-contact-wa-cta svg{width:15px;height:15px;transition:transform .2s ease;}
+.mh-contact-wa:hover .mh-contact-wa-cta svg{transform:translateX(4px);}
+
+/* ---------- TARJETA DEL FORMULARIO ---------- */
+.mh-contact-formcard{
+  background:#fff;
+  border:1px solid rgba(17,17,17,.08);
+  border-radius:20px;
+  box-shadow:0 24px 60px rgba(17,17,17,.07),0 4px 14px rgba(17,17,17,.04);
+  padding:clamp(24px,3.4vw,40px);
+}
+#page-container .mh-contact-formcard #et_pb_contact_form_0{border:0!important;padding:0!important;background:none!important;}
+#page-container .mh-contact-formcard .et_pb_contact_main_title{
+  font-family:var(--mh-serif),Georgia,serif!important;
+  font-weight:600!important;text-transform:none!important;
+  font-size:24px!important;color:var(--mh-ink)!important;
+  letter-spacing:-.01em!important;margin:0 0 22px!important;line-height:1.2!important;
+}
+#page-container .mh-contact-formcard .et_pb_contact_field{margin-bottom:18px!important;padding:0!important;}
+#page-container .mh-contact-formcard .et_pb_contact_form_label{
+  display:block!important;
+  font-family:var(--mh-sans)!important;font-size:12px!important;font-weight:600!important;
+  letter-spacing:.1em!important;text-transform:uppercase!important;
+  color:var(--mh-ink-soft)!important;margin-bottom:8px!important;
+}
+#page-container .mh-contact-formcard .input,
+#page-container .mh-contact-formcard textarea.input{
+  width:100%!important;box-sizing:border-box!important;
+  font-family:var(--mh-sans)!important;font-size:15px!important;color:var(--mh-ink)!important;
+  background:var(--mh-paper)!important;
+  border:1px solid rgba(17,17,17,.14)!important;border-bottom:1px solid rgba(17,17,17,.14)!important;
+  border-radius:10px!important;
+  padding:12px 14px!important;
+  transition:border-color .2s ease,box-shadow .2s ease,background-color .2s ease!important;
+}
+#page-container .mh-contact-formcard .input::placeholder,
+#page-container .mh-contact-formcard textarea.input::placeholder{color:var(--mh-stone)!important;}
+#page-container .mh-contact-formcard .input:focus,
+#page-container .mh-contact-formcard textarea.input:focus{
+  border-color:var(--mh-gold)!important;background:#fff!important;
+  box-shadow:0 0 0 3px rgba(180,154,108,.16)!important;outline:none!important;
+}
+#page-container .mh-contact-formcard textarea.input{min-height:130px!important;resize:vertical!important;}
+#page-container .mh-contact-formcard .et_contact_bottom_container{margin-top:6px!important;text-align:left!important;}
+html body #page-container .mh-contact-formcard .et_pb_contact_submit.et_pb_button{
+  display:inline-flex!important;align-items:center;justify-content:center;gap:9px;
+  width:100%!important;
+  background:var(--mh-ink)!important;color:#fff!important;
+  font-family:var(--mh-sans)!important;font-weight:700!important;
+  text-transform:uppercase!important;letter-spacing:.08em!important;font-size:13px!important;
+  border:0!important;border-radius:10px!important;
+  padding:15px 24px!important;
+  transition:background-color .25s ease,transform .2s ease!important;
+}
+html body #page-container .mh-contact-formcard .et_pb_contact_submit.et_pb_button:hover{
+  background:var(--mh-walnut)!important;transform:translateY(-1px);
+}
+.mh-contact-formcard .et_pb_contact_submit.et_pb_button:after{display:none!important;}
+.mh-contact-formcard .et_pb_contact_submit .mh-send-ico{flex:0 0 auto;}
+.mh-contact-formcard .et-pb-contact-message{color:var(--mh-ink)!important;font-size:14px;}
+
+@media (max-width:900px){
+  .mh-contact{overflow-x:hidden;}
+  .mh-contact-inner{grid-template-columns:1fr;gap:40px;}
+  .mh-contact-sub{max-width:none;}
+  .mh-contact-title{font-size:clamp(28px,7.5vw,40px);}
+  .mh-contact-v{font-family:var(--mh-sans);}
+}
+
+/* ---------- FOOTER ---------- */
+footer.et-l--footer,
+#page-container .et_pb_section_0_tb_footer{
+  background:var(--mh-paper)!important;
+  padding:0!important;
+}
+#page-container .et_pb_section_0_tb_footer{min-height:0!important;}
+.mh-footer{
+  width:92%;max-width:1180px;margin:0 auto;
+  padding:clamp(56px,8vw,96px) 0 34px;
+  font-family:var(--mh-sans),system-ui,sans-serif;color:var(--mh-ink);
+}
+.mh-footer-top{text-align:center;}
+.mh-footer-brand{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:34px;}
+.mh-footer-word{
+  font-family:var(--mh-serif),Georgia,serif;font-size:clamp(30px,4vw,44px);
+  font-weight:600;letter-spacing:.01em;color:var(--mh-ink);line-height:1;
+}
+.mh-footer-tag{
+  font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--mh-stone);
+}
+.mh-footer-statement{
+  font-family:var(--mh-serif),Georgia,serif;
+  font-size:clamp(22px,3vw,36px);line-height:1.3;font-weight:500;
+  max-width:22ch;margin:0 auto;color:var(--mh-ink);
+}
+.mh-footer-statement span{color:var(--mh-stone);}
+.mh-footer-rule{border:0;border-top:1px solid rgba(17,17,17,.14);margin:clamp(40px,6vw,72px) 0 40px;}
+.mh-footer-cols{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:28px;
+}
+.mh-footer-col{display:flex;flex-direction:column;gap:10px;}
+.mh-footer-col h4{
+  font-size:13px;font-weight:700;color:var(--mh-ink);margin:0 0 6px;padding:0;
+  letter-spacing:.02em;
+}
+.mh-footer-col a,.mh-footer-col span{
+  font-size:14px;color:var(--mh-ink-soft);text-decoration:none;line-height:1.5;
+}
+.mh-footer-col a:hover{color:var(--mh-walnut);}
+.mh-footer-social{display:flex;gap:10px;margin-top:2px;}
+.mh-footer-social a{
+  width:36px;height:36px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(17,17,17,.06);color:var(--mh-ink);
+  transition:background-color .2s ease,color .2s ease,transform .2s ease;
+}
+.mh-footer-social a:hover{background:var(--mh-gold);color:#fff;transform:translateY(-2px);}
+.mh-footer-social svg{width:18px;height:18px;}
+.mh-footer-bottom{
+  margin-top:48px;text-align:center;
+  font-size:12px;letter-spacing:.04em;color:var(--mh-stone);
+}
+@media (max-width:820px){
+  .mh-footer-cols{grid-template-columns:1fr 1fr;gap:32px 24px;}
+}
+@media (max-width:480px){
+  .mh-footer-cols{grid-template-columns:1fr;}
+  .mh-footer-statement{max-width:none;}
+}
+</style>
+
 </head>
 <body data-rsssl=1 class="home wp-singular page-template-default page page-id-21244404 wp-theme-Divi dipi-shrink-header slide_up_below dipi-custom-archive-page dipi-archive- dipi-fix-search-icon dipi-anim-preload et-tb-has-template et-tb-has-footer et_pb_button_helper_class et_transparent_nav et_fixed_nav et_show_nav et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_header_style_left et_pb_svg_logo et_cover_background et_pb_gutter windows et_pb_gutters3 et_pb_pagebuilder_layout et_smooth_scroll et_no_sidebar et_divi_theme et-db">
 	<div id="page-container">
@@ -1932,87 +2142,50 @@ Paneles exteriores forrados con madera seca tipo media luna o tinglado de 5 pulg
 			</div>
 				
 				
-			</div><div id="contacto" class="et_pb_section et_pb_section_9 et_pb_with_background et_section_regular" >
-				
-				
-				
-				
-				
-				
-				<div class="et_pb_row et_pb_row_5">
-				<div class="et_pb_column et_pb_column_4_4 et_pb_column_8  et_pb_css_mix_blend_mode_passthrough et-last-child">
-				
-				
-				
-				
-				<div class="et_pb_module et_pb_text et_pb_text_7  et_pb_text_align_center et_pb_bg_layout_light">
-				
-				
-				
-				
-				<div class="et_pb_text_inner">Estamos aquí para ayudarte</div>
-			</div>
-			</div>
-				
-				
-				
-				
-			</div>
-				
-				
-			</div><div class="et_pb_section et_pb_section_10 et_section_regular" >
-				
-				
-				
-				
-				
-				
-				<div class="et_pb_row et_pb_row_6">
-				<div class="et_pb_column et_pb_column_1_2 et_pb_column_9  et_pb_css_mix_blend_mode_passthrough">
-				
-				
-				
-				
-				<div class="et_pb_module et_pb_blurb et_pb_blurb_0  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
-				
-				
-				
-				
-				<div class="et_pb_blurb_content">
-					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon"></span></span></div>
-					<div class="et_pb_blurb_container">
-						<h4 class="et_pb_module_header"><span>Teléfonos</span></h4>
-						<div class="et_pb_blurb_description"><a href="tel:+56961042266" target="_blank" rel="noopener">+56 9 6104 2266</a><br />
-<a href="tel:+56978186184" target="_blank" rel="noopener">+56 9 7818 6184</a><br />
-<a href="tel:+56975575544" target="_blank" rel="noopener">+56 9 7557 5544</a></div>
+			</div><section id="contacto" class="mh-contact">
+	<div class="mh-contact-inner">
+		<div class="mh-contact-info">
+			<span class="mh-contact-eyebrow">Contacto</span>
+			<h2 class="mh-contact-title">Conversemos sobre <em>tu proyecto</em></h2>
+			<p class="mh-contact-sub">¿Tienes un terreno o una idea en mente? Escríbenos y te respondemos a la brevedad.</p>
+			<ul class="mh-contact-list">
+				<li>
+					<span class="mh-contact-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+					<div class="mh-contact-data">
+						<span class="mh-contact-k">Email</span>
+						<a href="mailto:ventas@mainhouse.cl">ventas@mainhouse.cl</a>
 					</div>
-				</div>
-			</div><div class="et_pb_module et_pb_divider et_pb_divider_0 et_pb_divider_position_ et_pb_space"><div class="et_pb_divider_internal"></div></div><div class="et_pb_module et_pb_blurb et_pb_blurb_1  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
-				
-				
-				
-				
-				<div class="et_pb_blurb_content">
-					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_off et_pb_animation_off_tablet et_pb_animation_off_phone et-pb-icon"></span></span></div>
-					<div class="et_pb_blurb_container">
-						<h4 class="et_pb_module_header"><span>Email</span></h4>
-						<div class="et_pb_blurb_description"><a href="mailto:ventas@mainhouse.cl" target="_blank" rel="noopener">ventas@mainhouse.cl</a><br />
-<!-- <a href="mailto:susana@mainhouse.cl" target="_blank" rel="noopener">susana@mainhouse.cl</a> --></div>
+				</li>
+				<li>
+					<span class="mh-contact-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+					<div class="mh-contact-data">
+						<span class="mh-contact-k">Teléfono</span>
+						<a href="tel:+56961042266">+56 9 6104 2266</a>
+						<a href="tel:+56978186184">+56 9 7818 6184</a>
+						<a href="tel:+56975575544">+56 9 7557 5544</a>
 					</div>
-				</div>
-			</div><div class="et_pb_module et_pb_divider et_pb_divider_1 et_pb_divider_position_ et_pb_space"><div class="et_pb_divider_internal"></div></div>
-			</div><div class="et_pb_column et_pb_column_1_2 et_pb_column_10  et_pb_css_mix_blend_mode_passthrough et-last-child">
-				
-				
-				
-				
-				
+				</li>
+				<li>
+					<span class="mh-contact-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+					<div class="mh-contact-data">
+						<span class="mh-contact-k">Cobertura</span>
+						<span class="mh-contact-v">Regi&oacute;n Metropolitana y regiones</span>
+					</div>
+				</li>
+			</ul>
+			<a class="mh-contact-wa" href="https://wa.me/56961042266" target="_blank" rel="noopener">
+				<span class="mh-contact-wa-h">&iquest;Necesitas respuesta inmediata?</span>
+				<span class="mh-contact-wa-p">WhatsApp es nuestra v&iacute;a m&aacute;s r&aacute;pida. Te respondemos en minutos.</span>
+				<span class="mh-contact-wa-cta">Escr&iacute;benos ahora <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+			</a>
+		</div>
+		<div class="mh-contact-formcard">
 			<div id="et_pb_contact_form_0" class="et_pb_with_border et_pb_module et_pb_contact_form_0 et_pb_recaptcha_enabled et_pb_contact_form_container clearfix" data-form_unique_num="0" data-form_unique_id="">
 				
 				
 				
 				
-				<h1 class="et_pb_contact_main_title">Contáctenos</h1>
+				<h1 class="et_pb_contact_main_title">Escríbenos</h1>
 				<div class="et-pb-contact-message"></div>
 				
 				<div class="et_pb_contact">
@@ -2023,48 +2196,40 @@ Paneles exteriores forrados con madera seca tipo media luna o tinglado de 5 pulg
 				
 				
 				<label for="et_pb_contact_nombre_0" class="et_pb_contact_form_label">Nombre</label>
-				<input type="text" id="et_pb_contact_nombre_0" class="input" value="" name="et_pb_contact_nombre_0" data-required_mark="required" data-field_type="input" data-original_id="nombre" placeholder="Nombre">
+				<input type="text" id="et_pb_contact_nombre_0" class="input" value="" name="et_pb_contact_nombre_0" data-required_mark="required" data-field_type="input" data-original_id="nombre" placeholder="Tu nombre completo">
 			</p><p class="et_pb_contact_field et_pb_contact_field_1 et_pb_contact_field_last" data-id="telefono" data-type="input">
 				
 				
 				
 				
 				<label for="et_pb_contact_telefono_0" class="et_pb_contact_form_label">Teléfono</label>
-				<input type="text" id="et_pb_contact_telefono_0" class="input" value="" name="et_pb_contact_telefono_0" data-required_mark="required" data-field_type="input" data-original_id="telefono" placeholder="Teléfono" pattern="[\w\s\-]*" title="Sólo se permiten letras y números.">
+				<input type="text" id="et_pb_contact_telefono_0" class="input" value="" name="et_pb_contact_telefono_0" data-required_mark="required" data-field_type="input" data-original_id="telefono" placeholder="+56 9 ..." pattern="[\w\s\-]*" title="Sólo se permiten letras y números.">
 			</p><p class="et_pb_contact_field et_pb_contact_field_2 et_pb_contact_field_last" data-id="email" data-type="email">
 				
 				
 				
 				
 				<label for="et_pb_contact_email_0" class="et_pb_contact_form_label">Correo Electrónico</label>
-				<input type="text" id="et_pb_contact_email_0" class="input" value="" name="et_pb_contact_email_0" data-required_mark="required" data-field_type="email" data-original_id="email" placeholder="Correo Electrónico">
+				<input type="text" id="et_pb_contact_email_0" class="input" value="" name="et_pb_contact_email_0" data-required_mark="required" data-field_type="email" data-original_id="email" placeholder="correo@ejemplo.com">
 			</p><p class="et_pb_contact_field et_pb_contact_field_3 et_pb_contact_field_last" data-id="mensaje" data-type="text">
 				
 				
 				
 				
 				<label for="et_pb_contact_mensaje_0" class="et_pb_contact_form_label">Mensaje</label>
-				<textarea name="et_pb_contact_mensaje_0" id="et_pb_contact_mensaje_0" class="et_pb_contact_message input" data-required_mark="required" data-field_type="text" data-original_id="mensaje" placeholder="Mensaje"></textarea>
+				<textarea name="et_pb_contact_mensaje_0" id="et_pb_contact_mensaje_0" class="et_pb_contact_message input" data-required_mark="required" data-field_type="text" data-original_id="mensaje" placeholder="Cuéntanos sobre tu proyecto o consulta..."></textarea>
 			</p>
 						<input type="hidden" value="et_contact_proccess" name="et_pb_contactform_submit_0"/>
 						<div class="et_contact_bottom_container">
 							
-							<button type="submit" name="et_builder_submit_button" class="et_pb_contact_submit et_pb_button" data-icon="$">Enviar</button>
+							<button type="submit" name="et_builder_submit_button" class="et_pb_contact_submit et_pb_button" data-icon="$"><svg class="mh-send-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg> Enviar mensaje</button>
 						</div>
 						<input type="hidden" id="_wpnonce-et-pb-contact-form-submitted-0" name="_wpnonce-et-pb-contact-form-submitted-0" value="c487585f43" /><input type="hidden" name="_wp_http_referer" value="/" />
 					</form>
 				</div>
-			</div>
-			
-			</div>
-				
-				
-				
-				
-			</div>
-				
-				
-			</div>		</div>
+		</div>
+	</div>
+</section>		</div>
 	</div>
 						</div>
 
@@ -2077,6 +2242,45 @@ Paneles exteriores forrados con madera seca tipo media luna o tinglado de 5 pulg
 
 	<footer class="et-l et-l--footer">
 			<div class="et_builder_inner_content et_pb_gutters3"><div class="et_pb_section et_pb_section_0_tb_footer et_section_regular" >
+<div class="mh-footer">
+	<div class="mh-footer-top">
+		<div class="mh-footer-brand">
+			<span class="mh-footer-word">Main House</span>
+			<span class="mh-footer-tag">Casas prefabricadas &middot; Llave en mano</span>
+		</div>
+		<p class="mh-footer-statement">Construimos tu casa llave en mano, <span>con la calidad y los plazos que mereces.</span></p>
+	</div>
+	<hr class="mh-footer-rule" />
+	<div class="mh-footer-cols">
+		<div class="mh-footer-col">
+			<h4>Navegaci&oacute;n</h4>
+			<a href="#inicio">Inicio</a>
+			<a href="#casas">Casas</a>
+			<a href="#contacto">Contacto</a>
+		</div>
+		<div class="mh-footer-col">
+			<h4>Contacto</h4>
+			<a href="mailto:ventas@mainhouse.cl">ventas@mainhouse.cl</a>
+			<a href="tel:+56961042266">+56 9 6104 2266</a>
+			<a href="tel:+56978186184">+56 9 7818 6184</a>
+		</div>
+		<div class="mh-footer-col">
+			<h4>Cobertura</h4>
+			<span>Regi&oacute;n Metropolitana</span>
+			<span>Regiones de Chile</span>
+		</div>
+		<div class="mh-footer-col">
+			<h4>Escr&iacute;benos</h4>
+			<div class="mh-footer-social">
+				<a href="https://wa.me/56961042266" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.02h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.25 3.74.59.26 1.06.41 1.42.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg></a>
+				<a href="mailto:ventas@mainhouse.cl" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+				<a href="tel:+56961042266" aria-label="Tel&eacute;fono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+			</div>
+		</div>
+	</div>
+	<div class="mh-footer-bottom">&copy; 2026 Main House &middot; Casas prefabricadas llave en mano</div>
+</div>
+
 				
 				
 				
