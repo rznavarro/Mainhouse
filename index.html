@@ -164,6 +164,7 @@
 <link rel='stylesheet' id='et-divi-open-sans-css' href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&#038;subset=cyrillic,cyrillic-ext,greek,greek-ext,hebrew,latin,latin-ext,vietnamese&#038;display=swap' media='all' />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<link href="https://db.onlinewebfonts.com/c/0e6de1ec911a2e267ff136bbdd384a44?family=Helvetica+Neue+Light" rel="stylesheet">
 <style id="divi-style-inline-inline-css">
 /*!
 Theme Name: Divi
@@ -1103,6 +1104,154 @@ footer.et-l--footer,
 .mh-spec-item span:last-child{color:var(--mh-paper);text-align:right;}
 </style>
 
+<style id="mainhouse-hero-v2">
+/* ============================================================
+   MAIN HOUSE — Hero v2 (editorial / video de fondo)
+   Inspirado en un layout tipo "landing" (nav fija + hero a pantalla
+   completa, contenido alineado a la izquierda, pill esmerilada).
+   Bloque único y reversible: para revertir, borrar este <style>,
+   el <link> de "Helvetica Neue Light" y el <div class="mh-hero-media">
+   dentro de #inicio.
+   ============================================================ */
+:root{
+  --mh-hn:'Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+/* ---- Sección hero: alto de viewport, columna, contenido arriba-izquierda ---- */
+#page-container .et_pb_section_0{
+  position:relative;
+  display:flex!important;
+  flex-direction:column;
+  align-items:stretch;
+  justify-content:flex-start;
+  min-height:100vh;
+  min-height:100svh;
+  overflow:hidden;
+  padding-top:clamp(120px,20vh,220px)!important;
+  padding-bottom:clamp(48px,9vh,96px)!important;
+}
+@supports not (min-height:100svh){
+  #page-container .et_pb_section_0{min-height:700px;}
+}
+
+/* ---- Capa de video a sangre completa ---- */
+.mh-hero-media{position:absolute;inset:0;z-index:0;overflow:hidden;}
+.mh-hero-media video{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center bottom;display:block;
+}
+/* Velo crema para legibilidad del texto oscuro (coherente con el hero previo) */
+.mh-hero-media::after{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 28% 42%,
+      rgba(244,241,235,.92) 0%,
+      rgba(244,241,235,.60) 38%,
+      rgba(244,241,235,.28) 68%,
+      rgba(244,241,235,.14) 100%),
+    linear-gradient(to bottom,rgba(244,241,235,.35) 0%,rgba(244,241,235,0) 30%);
+}
+
+/* ---- Filas por encima del video, ancho editorial, alineadas a la izquierda ---- */
+#page-container .et_pb_section_0 .et_pb_row_0,
+#page-container .et_pb_section_0 .et_pb_row_1,
+#page-container .et_pb_section_0 .mh-hero-extra{
+  position:relative;z-index:5;
+  width:92%!important;max-width:1180px!important;
+  margin:0 auto!important;padding:0!important;
+}
+#page-container .et_pb_section_0 .et_pb_row_1{order:1;}
+#page-container .et_pb_section_0 .et_pb_row_0{order:2;}
+#page-container .et_pb_section_0 .mh-hero-extra{order:3;margin-top:clamp(26px,4vh,44px)!important;}
+
+/* columnas vacías 20/60/20 -> fuera; la del medio a ancho completo */
+#page-container .et_pb_section_0 .et_pb_column_1,
+#page-container .et_pb_section_0 .et_pb_column_3{display:none!important;}
+#page-container .et_pb_section_0 .et_pb_column_0,
+#page-container .et_pb_section_0 .et_pb_column_2{
+  width:100%!important;max-width:100%!important;margin:0!important;
+  float:none!important;text-align:left!important;
+}
+
+/* ---- Titular ---- */
+#page-container .et_pb_section_0 .et_pb_text_0 .et_pb_text_inner{text-align:left;}
+#page-container .et_pb_text_0 h2{
+  font-family:var(--mh-hn)!important;
+  font-weight:300!important;
+  text-transform:none!important;
+  text-align:left!important;
+  font-size:clamp(34px,6.6vw,76px)!important;
+  line-height:1.03!important;
+  letter-spacing:-.02em!important;
+  color:var(--mh-ink)!important;
+  max-width:19ch;
+  margin:0!important;
+}
+
+/* ---- Pill de anuncio (reutiliza el módulo et_pb_text_1) ---- */
+#page-container .et_pb_section_0 .et_pb_text_1{
+  display:inline-flex!important;
+  align-items:center;
+  width:auto!important;max-width:100%!important;
+  margin:0 0 clamp(20px,3vh,30px) 0!important;
+  padding:9px 18px!important;
+  background:rgba(255,255,255,.60)!important;
+  color:var(--mh-ink)!important;
+  border:1px solid rgba(17,17,17,.14)!important;
+  border-radius:999px!important;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  font-family:var(--mh-hn)!important;
+  font-weight:400!important;
+  letter-spacing:.01em!important;
+  font-size:14px!important;
+  line-height:1.2!important;
+  box-shadow:none!important;
+  transition:background-color .25s ease;
+}
+#page-container .et_pb_section_0 .et_pb_text_1 .et_pb_text_inner{display:inline!important;white-space:normal!important;}
+#page-container .et_pb_section_0 .et_pb_text_1 p{display:inline!important;margin:0!important;padding:0!important;color:inherit!important;font:inherit!important;}
+#page-container .et_pb_section_0 .et_pb_text_1 .et_pb_text_inner::after{
+  content:"\2192";margin-left:.6em;font-size:1.05em;line-height:1;vertical-align:baseline;opacity:.75;
+}
+#page-container .et_pb_section_0 .et_pb_text_1:hover{background:rgba(255,255,255,.82)!important;transform:none!important;}
+
+/* ---- Fila "proceso" (equivalente al 'backed by') ---- */
+.mh-hero-extra-label{
+  display:block;
+  font-family:var(--mh-hn);
+  font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--mh-ink-soft);
+  margin:0 0 16px 0;
+}
+.mh-hero-extra-row{
+  display:flex;flex-wrap:wrap;align-items:baseline;
+  gap:clamp(16px,4vw,56px);
+}
+.mh-hero-extra-row span{
+  font-family:var(--mh-serif);
+  font-size:clamp(17px,2.3vw,25px);
+  color:rgba(17,17,17,.72);
+  letter-spacing:.01em;white-space:nowrap;
+}
+
+/* ---- Divisor inferior de Divi: molesta sobre el video ---- */
+#page-container .et_pb_section_0 .et_pb_bottom_inside_divider{display:none!important;}
+
+/* ---- Entrada escalonada (fade-up) ---- */
+@media (prefers-reduced-motion:no-preference){
+  #page-container .et_pb_section_0 .et_pb_text_1{animation:mh-rise .8s cubic-bezier(.16,1,.3,1) .15s both;}
+  #page-container .et_pb_section_0 .et_pb_text_0{animation:mh-rise .8s cubic-bezier(.16,1,.3,1) .30s both;}
+  #page-container .et_pb_section_0 .mh-hero-extra{animation:mh-rise .8s cubic-bezier(.16,1,.3,1) .45s both;}
+}
+
+/* ---- Móvil ---- */
+@media (max-width:767px){
+  #page-container .et_pb_section_0{padding-top:118px!important;padding-bottom:52px!important;}
+  #page-container .et_pb_text_0 h2{font-size:clamp(30px,9vw,44px)!important;max-width:17ch;}
+  .mh-hero-media video{object-position:center center;}
+}
+</style>
+
 </head>
 <body data-rsssl=1 class="home wp-singular page-template-default page page-id-21244404 wp-theme-Divi dipi-shrink-header slide_up_below dipi-custom-archive-page dipi-archive- dipi-fix-search-icon dipi-anim-preload et-tb-has-template et-tb-has-footer et_pb_button_helper_class et_transparent_nav et_fixed_nav et_show_nav et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_header_style_left et_pb_svg_logo et_cover_background et_pb_gutter windows et_pb_gutters3 et_pb_pagebuilder_layout et_smooth_scroll et_no_sidebar et_divi_theme et-db">
 	<div id="page-container">
@@ -1149,6 +1298,12 @@ footer.et-l--footer,
 					<div class="et-l et-l--post">
 			<div class="et_builder_inner_content et_pb_gutters3">
 		<div id="inicio" class="et_pb_section et_pb_section_0 et_pb_with_background et_section_regular section_has_divider et_pb_bottom_divider" >
+				<div class="mh-hero-media" aria-hidden="true">
+					<video autoplay muted loop playsinline preload="auto" poster="https://mainhouse.cl/wp-content/uploads/2024/03/mh-bg.jpg">
+						<source src="videohero/hero.mp4" type="video/mp4">
+						<source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260820_010308_b1636845-4c15-4ab6-b0c9-9a29bfb0c6e3.mp4" type="video/mp4">
+					</video>
+				</div>
 				
 				
 				
@@ -1205,6 +1360,15 @@ footer.et-l--footer,
 				
 			</div>
 				
+				<div class="mh-hero-extra">
+					<span class="mh-hero-extra-label">Nuestro proceso</span>
+					<div class="mh-hero-extra-row">
+						<span>Diseño</span>
+						<span>Fabricación</span>
+						<span>Montaje</span>
+						<span>Entrega</span>
+					</div>
+				</div>
 				<div class="et_pb_bottom_inside_divider et-no-transition"></div>
 			</div><div class="et_pb_section et_pb_section_1 et_pb_with_background et_section_regular" >
 				
