@@ -1242,6 +1242,150 @@ footer.et-l--footer,
 }
 </style>
 
+<style id="mainhouse-navbar-v2">
+/* ============================================================
+   MAIN HOUSE — Navbar v2 (isla flotante)
+   Inspirado en una barra tipo "pill" separada del borde, fondo
+   claro, sombra suave, enlaces en gris y CTA redondo a la derecha.
+   Bloque unico y reversible: borrar este <style> y el
+   <a class="mh-nav-cta"> dentro de #main-header .container.
+   ============================================================ */
+
+/* Header: transparente, deja "flotar" la isla */
+#main-header,
+.et-fixed-header#main-header{
+  background:transparent!important;
+  box-shadow:none!important;
+  border:0!important;
+  height:auto!important;min-height:0!important;
+  padding:14px 0!important;
+  transition:padding .3s ease!important;
+}
+.et-fixed-header#main-header{padding:9px 0!important;}
+
+/* La isla: el .container de Divi se convierte en la pastilla */
+#main-header .container.et_menu_container{
+  display:flex!important;
+  align-items:center;
+  gap:26px;
+  width:92%!important;max-width:1180px!important;
+  padding:7px 12px 7px 22px!important;
+  background:#faf8f5!important;
+  border:1px solid rgba(17,17,17,.06)!important;
+  border-radius:16px!important;
+  box-shadow:0 10px 30px rgba(17,17,17,.11),0 2px 8px rgba(17,17,17,.05)!important;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  transition:box-shadow .3s ease,padding .3s ease;
+}
+.et-fixed-header .container.et_menu_container{
+  padding:8px 14px 8px 24px!important;
+  box-shadow:0 8px 24px rgba(17,17,17,.14),0 1px 4px rgba(17,17,17,.08)!important;
+}
+
+/* Logo */
+#main-header .logo_container{
+  position:relative!important;
+  float:none!important;
+  width:auto!important;height:auto!important;
+  margin:0!important;
+  display:flex;align-items:center;
+  flex:0 0 auto;
+}
+#main-header .logo_container .logo_helper{display:none!important;}
+#main-header #logo{
+  position:relative!important;
+  height:30px!important;width:auto!important;max-height:30px!important;
+  transform:none!important;
+}
+.et-fixed-header #logo{height:26px!important;max-height:26px!important;}
+
+/* Zona de navegacion */
+#main-header #et-top-navigation{
+  display:flex!important;
+  align-items:center;
+  float:none!important;
+  width:auto!important;
+  padding:0!important;margin:0 auto 0 6px!important;
+}
+
+/* Enlaces */
+#main-header #top-menu{
+  display:flex!important;
+  align-items:center;
+  gap:32px;
+}
+#main-header #top-menu li{margin:0!important;padding:0!important;background:none!important;}
+#main-header #top-menu li a{
+  font-family:var(--mh-sans)!important;
+  font-size:14px!important;
+  font-weight:500!important;
+  letter-spacing:.005em!important;
+  line-height:1.3!important;
+  text-transform:none!important;
+  color:rgba(17,17,17,.60)!important;
+  padding:6px 0!important;
+  transition:color .2s ease;
+}
+#main-header #top-menu li a:hover{color:var(--mh-ink)!important;opacity:1!important;}
+#main-header #top-menu li a span:after,
+#main-header #top-menu li a span:before{display:none!important;}
+
+/* CTA redondo a la derecha */
+#main-header .mh-nav-cta{
+  flex:0 0 auto;
+  display:inline-flex;align-items:center;
+  padding:10px 20px;
+  background:var(--mh-ink);
+  color:#faf8f5;
+  font-family:var(--mh-sans);
+  font-size:13px;font-weight:600;letter-spacing:.015em;
+  line-height:1;
+  border-radius:999px;
+  text-decoration:none;
+  white-space:nowrap;
+  transition:background-color .25s ease,transform .2s ease;
+}
+#main-header .mh-nav-cta:hover{background:var(--mh-walnut);transform:translateY(-1px);color:#faf8f5;}
+
+/* Menu movil desplegable: mismo lenguaje de isla */
+#main-header .et_mobile_menu{
+  border:1px solid rgba(17,17,17,.06)!important;
+  border-radius:14px!important;
+  box-shadow:0 12px 34px rgba(17,17,17,.14)!important;
+  background:#faf8f5!important;
+  margin-top:10px!important;
+  padding:8px 6px!important;
+}
+#main-header .et_mobile_menu li a{
+  font-family:var(--mh-sans)!important;
+  color:rgba(17,17,17,.66)!important;
+  border-bottom:1px solid rgba(17,17,17,.05)!important;
+  text-transform:none!important;font-weight:500!important;letter-spacing:.01em!important;
+}
+
+@media (max-width:980px){
+  #main-header .container.et_menu_container{
+    box-sizing:border-box!important;
+    gap:12px;
+    width:90%!important;
+    padding:9px 16px!important;
+    border-radius:14px!important;
+  }
+  .et-fixed-header .container.et_menu_container{padding:7px 16px!important;}
+  #main-header .mh-nav-cta{display:none!important;}
+  #main-header #top-menu{display:none!important;}
+  #main-header #et-top-navigation{margin:0 0 0 auto!important;}
+  #main-header #et_mobile_nav_menu{display:block!important;float:none!important;margin:0!important;}
+  #main-header .mobile_nav{padding:0!important;background:none!important;}
+  #main-header .mobile_menu_bar{display:flex!important;align-items:center;}
+  #main-header .mobile_menu_bar:before{color:var(--mh-ink)!important;font-size:24px!important;top:0!important;}
+  #main-header #logo{height:24px!important;max-height:24px!important;max-width:none!important;}
+}
+@media (max-width:479px){
+  #main-header .container.et_menu_container{width:94%!important;}
+}
+</style>
+
 </head>
 <body data-rsssl=1 class="home wp-singular page-template-default page page-id-21244404 wp-theme-Divi dipi-shrink-header slide_up_below dipi-custom-archive-page dipi-archive- dipi-fix-search-icon dipi-anim-preload et-tb-has-template et-tb-has-footer et_pb_button_helper_class et_transparent_nav et_fixed_nav et_show_nav et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_header_style_left et_pb_svg_logo et_cover_background et_pb_gutter windows et_pb_gutters3 et_pb_pagebuilder_layout et_smooth_scroll et_no_sidebar et_divi_theme et-db">
 	<div id="page-container">
@@ -1273,6 +1417,7 @@ footer.et-l--footer,
 					<span class="mobile_menu_bar mobile_menu_bar_toggle"></span>
 				</div>
 			</div>			</div> <!-- #et-top-navigation -->
+			<a class="mh-nav-cta" href="https://wa.me/56961042266" target="_blank" rel="noopener">Hablemos por WhatsApp</a>
 		</div> <!-- .container -->
 			</header> <!-- #main-header -->
 <div id="et-main-area">
