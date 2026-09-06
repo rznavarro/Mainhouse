@@ -1140,17 +1140,7 @@ footer.et-l--footer,
   position:absolute;inset:0;width:100%;height:100%;
   object-fit:cover;object-position:center bottom;display:block;
 }
-/* Velo crema para legibilidad del texto oscuro (coherente con el hero previo) */
-.mh-hero-media::after{
-  content:"";position:absolute;inset:0;
-  background:
-    radial-gradient(circle at 28% 42%,
-      rgba(244,241,235,.92) 0%,
-      rgba(244,241,235,.60) 38%,
-      rgba(244,241,235,.28) 68%,
-      rgba(244,241,235,.14) 100%),
-    linear-gradient(to bottom,rgba(244,241,235,.35) 0%,rgba(244,241,235,0) 30%);
-}
+/* Sin velo: el video se muestra sin capa de color encima. */
 
 /* ---- Filas por encima del video, ancho editorial, alineadas a la izquierda ---- */
 #page-container .et_pb_section_0 .et_pb_row_0,
