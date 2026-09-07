@@ -1810,6 +1810,73 @@ footer.et-l--footer,
 }
 </style>
 
+<style id="mainhouse-contact-footer-dark">
+/* ============================================================
+   MAIN HOUSE — Contacto + Footer en tema OSCURO
+   Mantiene el mismo diseno; solo cambia la paleta para que
+   pegue con el resto del sitio. Reversible: borrar este bloque.
+   ============================================================ */
+
+/* Volteo de variables locales: texto claro sobre fondo oscuro */
+.mh-contact,
+.mh-footer,
+footer.et-l--footer,
+#page-container .et_pb_section_0_tb_footer{
+  --mh-ink:#f4f1ea;
+  --mh-paper:#0c0a09;
+  --mh-ink-soft:rgba(255,255,255,.64);
+  --mh-stone:rgba(255,255,255,.42);
+}
+
+.mh-contact{border-top:1px solid rgba(255,255,255,.06);}
+
+/* Enlaces: hover en dorado (el nogal no contrasta en oscuro) */
+.mh-contact-data a:hover,
+.mh-footer-col a:hover{color:var(--mh-gold)!important;}
+
+/* Tarjeta WhatsApp */
+.mh-contact-wa{background:rgba(180,154,108,.12)!important;border-color:rgba(180,154,108,.34)!important;}
+.mh-contact-wa:hover{background:rgba(180,154,108,.18)!important;box-shadow:0 14px 30px rgba(0,0,0,.45)!important;}
+.mh-contact-wa-h{color:var(--mh-gold)!important;}
+.mh-contact-wa-cta{color:var(--mh-ink)!important;}
+
+/* Tarjeta del formulario -> oscura */
+.mh-contact-formcard{
+  background:#171311!important;
+  border-color:rgba(255,255,255,.12)!important;
+  box-shadow:0 24px 60px rgba(0,0,0,.5),0 4px 14px rgba(0,0,0,.32)!important;
+}
+#page-container .mh-contact-formcard .et_pb_contact_main_title{color:#fff!important;}
+#page-container .mh-contact-formcard .et_pb_contact_form_label{color:var(--mh-ink-soft)!important;}
+#page-container .mh-contact-formcard .input,
+#page-container .mh-contact-formcard textarea.input{
+  background:#0c0a09!important;
+  border-color:rgba(255,255,255,.14)!important;
+  color:var(--mh-ink)!important;
+}
+#page-container .mh-contact-formcard .input::placeholder,
+#page-container .mh-contact-formcard textarea.input::placeholder{color:rgba(255,255,255,.34)!important;}
+#page-container .mh-contact-formcard .input:focus,
+#page-container .mh-contact-formcard textarea.input:focus{
+  background:#0c0a09!important;border-color:var(--mh-gold)!important;
+  box-shadow:0 0 0 3px rgba(180,154,108,.22)!important;
+}
+html body #page-container .mh-contact-formcard .et_pb_contact_submit.et_pb_button{
+  background:#fff!important;color:#110d0c!important;
+}
+html body #page-container .mh-contact-formcard .et_pb_contact_submit.et_pb_button:hover{
+  background:var(--mh-gold)!important;color:#110d0c!important;
+}
+
+/* Footer: detalles con valores fijos */
+.mh-footer-word{color:#fff!important;}
+.mh-footer-col h4{color:#fff!important;}
+.mh-footer-rule{border-top-color:rgba(255,255,255,.12)!important;}
+.mh-footer-statement span{color:rgba(255,255,255,.42)!important;}
+.mh-footer-social a{background:rgba(255,255,255,.08)!important;color:var(--mh-ink)!important;}
+.mh-footer-social a:hover{background:var(--mh-gold)!important;color:#110d0c!important;}
+</style>
+
 <style id="mainhouse-shop">
 /* ============================================================
    MAIN HOUSE — Catalogo de modelos + carrito + checkout (diseno)
