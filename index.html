@@ -1213,6 +1213,28 @@ footer.et-l--footer,
   text-shadow:0 2px 40px rgba(0,0,0,.5),0 1px 4px rgba(0,0,0,.35);
 }
 
+/* ---- Boton de accion del hero ---- */
+#page-container .et_pb_section_0 .mh-hero-cta{
+  display:inline-flex;align-items:center;gap:10px;
+  margin:clamp(26px,4.5vh,44px) auto 0;
+  padding:16px 34px;
+  font-family:var(--mh-sans)!important;
+  font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:#1a1207;text-decoration:none;
+  background:linear-gradient(135deg,#e7c98a 0%,#c5a880 45%,#a9873f 100%);
+  border-radius:999px;
+  box-shadow:0 14px 40px rgba(180,154,108,.42),0 4px 14px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.4);
+  transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s ease,filter .22s ease;
+}
+#page-container .et_pb_section_0 .mh-hero-cta svg{width:16px;height:16px;transition:transform .22s ease;}
+#page-container .et_pb_section_0 .mh-hero-cta:hover{
+  transform:translateY(-3px);
+  box-shadow:0 20px 54px rgba(180,154,108,.55),0 6px 18px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.5);
+  filter:brightness(1.04);
+}
+#page-container .et_pb_section_0 .mh-hero-cta:hover svg{transform:translateX(4px);}
+#page-container .et_pb_section_0 .mh-hero-cta:active{transform:translateY(-1px);}
+
 /* ---- Efecto "blur text": las palabras entran desde el desenfoque ---- */
 #page-container .et_pb_text_0 h2 .mh-blur-word{display:inline-block;}
 @media (prefers-reduced-motion:no-preference){
@@ -1234,6 +1256,10 @@ footer.et-l--footer,
   #page-container .et_pb_section_0 .mh-eyebrow{
     opacity:0;filter:blur(8px);transform:translateY(10px);
     animation:mh-blur-in .7s cubic-bezier(.2,.65,.3,1) both;
+  }
+  #page-container .et_pb_section_0 .mh-hero-cta{
+    opacity:0;filter:blur(10px);transform:translateY(14px);
+    animation:mh-blur-in .8s cubic-bezier(.2,.65,.3,1) .95s both;
   }
 }
 
@@ -2300,7 +2326,7 @@ html body #page-container .mh-contact-formcard .et_pb_contact_submit.et_pb_butto
 				
 				
 				
-				<div class="et_pb_text_inner"><h2 data-accent-start="5">Tu hogar, más cerca de lo que imaginas</h2></div>
+				<div class="et_pb_text_inner"><h2 data-accent-start="5">Tu hogar, más cerca de lo que imaginas</h2><a class="mh-hero-cta" href="#modelos">Ver modelos<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
 			</div>
 			</div>
 				
