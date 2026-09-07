@@ -3836,13 +3836,10 @@ var et_pb_box_shadow_elements = [];
   }
 
   function cardHTML(p){
-    var badges=p.tags.slice(0,2).map(function(t){return '<span class="mh-badge mh-badge--'+t+'">'+TAG[t]+'</span>';}).join('');
     var inCart=!!cart[p.id];
     return ''+
     '<article class="mh-shop-card" data-id="'+p.id+'">'+
       '<div class="mh-shop-media">'+
-        '<div class="mh-shop-badges">'+badges+'</div>'+
-        '<span class="mh-shop-cat">'+CAT[p.cat]+'</span>'+
         '<img src="'+p.img+'" alt="'+p.name+'" loading="lazy" />'+
       '</div>'+
       '<div class="mh-shop-cardbody">'+
