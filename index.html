@@ -2311,10 +2311,19 @@ html body #page-container .mh-contact-formcard .et_pb_contact_submit.et_pb_butto
   transition:transform .06s linear;
   will-change:transform;
 }
-.mh-scroll-panel{
-  background:#100e0c;
-  border-radius:20px;
-  padding:clamp(26px,3.6vw,52px);
+/* Imagen a sangre completa dentro del marco */
+.mh-scroll-media{
+  border-radius:20px;overflow:hidden;background:#0a0908;
+  aspect-ratio:16/10;
+}
+.mh-scroll-media img{
+  display:block;width:100%;height:100%;object-fit:cover;
+}
+/* Texto: debajo del marco, contenedor centrado y texto a la izquierda */
+.mh-scroll-text{
+  width:100%;max-width:820px;
+  margin:clamp(44px,7vh,84px) auto 0;
+  text-align:left;
 }
 .mh-scroll-lead{
   font-family:var(--mh-sans);
@@ -2323,7 +2332,7 @@ html body #page-container .mh-contact-formcard .et_pb_contact_submit.et_pb_butto
 }
 .mh-scroll-body{
   font-size:clamp(15px,1.5vw,17px);line-height:1.78;
-  color:rgba(255,255,255,.78);margin:0 0 clamp(26px,3.4vw,40px);max-width:72ch;
+  color:rgba(255,255,255,.78);margin:0 0 clamp(26px,3.4vw,40px);
 }
 .mh-scroll-specs{
   list-style:none;margin:0;padding:0;
@@ -2340,9 +2349,11 @@ html body #page-container .mh-contact-formcard .et_pb_contact_submit.et_pb_butto
 @media (max-width:768px){
   .mh-scroll-stage{padding:clamp(56px,9vh,96px) 0;perspective:900px;}
   .mh-scroll-card{
-    border-width:4px;border-radius:22px;
+    border-width:4px;border-radius:22px;padding:8px;
     transform:rotateX(calc((1 - var(--p,0)) * 13deg)) scale(calc(.92 + var(--p,0) * .08));
   }
+  .mh-scroll-media{aspect-ratio:4/3;border-radius:14px;}
+  .mh-scroll-text{margin-top:clamp(32px,6vh,52px);}
   .mh-scroll-specs li{flex-direction:column;gap:3px;font-size:12px;}
   .mh-scroll-specs li span:last-child{text-align:left;}
 }
@@ -2809,17 +2820,20 @@ html body #page-container .mh-contact-formcard .et_pb_contact_submit.et_pb_butto
 			<h2>&iquest;Qu&eacute; es un kit b&aacute;sico?</h2>
 		</div>
 		<div class="mh-scroll-card">
-			<div class="mh-scroll-panel">
-				<h3 class="mh-scroll-lead">Un kit b&aacute;sico contiene:</h3>
-				<p class="mh-scroll-body">Paneles exteriores forrados con madera seca tipo media luna o tinglado de 5 pulgadas, m&aacute;s fieltro; tabiquer&iacute;a de 2&times;3 forrada con vulcanita por un lado del panel; techo de zinc acanalado calibre 0,35; cerchas, caballetes, costaneras de 2&times;3; fieltro para techo; y madera seca, para el cierre de cerchas (frontones). Altura interior: 2,40 m.</p>
-				<ul class="mh-scroll-specs">
-					<li><span>Revestimiento</span><span>Madera seca media luna / tinglado 5"</span></li>
-					<li><span>Tabiquer&iacute;a</span><span>2&times;3 forrada en vulcanita</span></li>
-					<li><span>Techumbre</span><span>Zinc acanalado cal. 0,35</span></li>
-					<li><span>Estructura</span><span>Cerchas y costaneras 2&times;3</span></li>
-					<li><span>Altura interior</span><span>2,40 m</span></li>
-				</ul>
+			<div class="mh-scroll-media">
+				<img src="img/kit-basico.jpg" alt="Casa prefabricada Main House al atardecer" loading="lazy" />
 			</div>
+		</div>
+		<div class="mh-scroll-text">
+			<h3 class="mh-scroll-lead">Un kit b&aacute;sico contiene:</h3>
+			<p class="mh-scroll-body">Paneles exteriores forrados con madera seca tipo media luna o tinglado de 5 pulgadas, m&aacute;s fieltro; tabiquer&iacute;a de 2&times;3 forrada con vulcanita por un lado del panel; techo de zinc acanalado calibre 0,35; cerchas, caballetes, costaneras de 2&times;3; fieltro para techo; y madera seca, para el cierre de cerchas (frontones). Altura interior: 2,40 m.</p>
+			<ul class="mh-scroll-specs">
+				<li><span>Revestimiento</span><span>Madera seca media luna / tinglado 5"</span></li>
+				<li><span>Tabiquer&iacute;a</span><span>2&times;3 forrada en vulcanita</span></li>
+				<li><span>Techumbre</span><span>Zinc acanalado cal. 0,35</span></li>
+				<li><span>Estructura</span><span>Cerchas y costaneras 2&times;3</span></li>
+				<li><span>Altura interior</span><span>2,40 m</span></li>
+			</ul>
 		</div>
 	</div>
 </section>
