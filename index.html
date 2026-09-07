@@ -1810,6 +1810,358 @@ footer.et-l--footer,
 }
 </style>
 
+<style id="mainhouse-shop">
+/* ============================================================
+   MAIN HOUSE — Catalogo de modelos + carrito + checkout (diseno)
+   Bloque unico y reversible: borrar este <style>, el
+   <script id="mainhouse-shop-js">, la <section id="modelos"> y
+   el <li class="mh-nav-modelos"> del menu.
+   ============================================================ */
+:root{
+  --sh-bg:#0c0a09;
+  --sh-card:#171311;
+  --sh-line:rgba(255,255,255,.12);
+  --sh-line-2:rgba(255,255,255,.07);
+  --sh-gold:#c5a880;
+  --sh-txt:#f3f0ea;
+  --sh-mut:rgba(255,255,255,.62);
+  --sh-mut-2:rgba(255,255,255,.42);
+}
+
+.mh-shop{
+  position:relative;
+  background:var(--sh-bg);
+  color:var(--sh-txt);
+  font-family:var(--mh-sans),system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  padding:clamp(56px,8vw,104px) 0 clamp(48px,7vw,88px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.mh-shop *{box-sizing:border-box;}
+.mh-shop [hidden]{display:none!important;}
+.mh-shop-inner{width:92%;max-width:1280px;margin:0 auto;}
+
+/* Cabecera */
+.mh-shop-eyebrow{
+  display:inline-block;font-size:12px;font-weight:700;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--sh-gold);margin-bottom:14px;
+}
+.mh-shop-title{
+  font-family:var(--mh-serif),Georgia,serif;font-weight:600;
+  font-size:clamp(34px,5vw,60px);line-height:1.05;letter-spacing:-.01em;
+  color:#fff;margin:0 0 26px;
+}
+.mh-shop-search{
+  display:flex;align-items:center;gap:10px;
+  background:var(--sh-card);border:1px solid var(--sh-line);
+  border-radius:999px;padding:8px 8px 8px 18px;
+  max-width:820px;
+}
+.mh-shop-search-ico{width:18px;height:18px;color:var(--sh-mut-2);flex:0 0 auto;}
+.mh-shop-search-input{
+  flex:1;min-width:0;background:none;border:0;outline:none;
+  color:var(--sh-txt);font:inherit;font-size:15px;padding:8px 4px;
+}
+.mh-shop-search-input::placeholder{color:var(--sh-mut-2);}
+.mh-shop-search-btn{
+  flex:0 0 auto;border:0;cursor:pointer;
+  background:linear-gradient(135deg,#c5a880,#a48256);color:#110d0c;
+  font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;
+  padding:11px 24px;border-radius:999px;transition:transform .2s ease;
+}
+.mh-shop-search-btn:hover{transform:translateY(-1px);}
+
+/* Barra de resultados */
+.mh-shop-bar{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  margin:26px 0 20px;padding-bottom:16px;border-bottom:1px solid var(--sh-line-2);
+  flex-wrap:wrap;
+}
+.mh-shop-count{font-size:14px;color:var(--sh-mut);}
+.mh-shop-bar-right{display:flex;align-items:center;gap:12px;}
+.mh-shop-filters-toggle{
+  display:none;align-items:center;gap:8px;cursor:pointer;
+  background:var(--sh-card);border:1px solid var(--sh-line);color:var(--sh-txt);
+  font:inherit;font-size:13px;font-weight:600;padding:9px 16px;border-radius:10px;
+}
+.mh-shop-filters-toggle svg{width:16px;height:16px;}
+.mh-shop-sort{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--sh-mut);}
+.mh-shop-sort select{
+  background:var(--sh-card);border:1px solid var(--sh-line);color:var(--sh-txt);
+  font:inherit;font-size:13px;padding:9px 32px 9px 12px;border-radius:10px;cursor:pointer;
+  -webkit-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23c5a880' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 12px center;
+}
+
+/* Cuerpo: sidebar + resultados */
+.mh-shop-body{display:grid;grid-template-columns:248px 1fr;gap:clamp(24px,3vw,44px);align-items:start;}
+
+/* Sidebar */
+.mh-shop-filters-inner{position:sticky;top:100px;display:flex;flex-direction:column;gap:22px;}
+.mh-shop-filters-top{display:flex;align-items:center;gap:12px;}
+.mh-shop-filters-h{font-size:15px;font-weight:700;color:#fff;}
+.mh-shop-clear{
+  margin-left:auto;background:none;border:0;cursor:pointer;
+  color:var(--sh-gold);font:inherit;font-size:12px;text-decoration:underline;text-underline-offset:3px;
+}
+.mh-shop-filters-close{display:none;background:none;border:0;color:var(--sh-mut);font-size:26px;line-height:1;cursor:pointer;}
+.mh-fg{display:flex;flex-direction:column;gap:9px;padding-bottom:20px;border-bottom:1px solid var(--sh-line-2);}
+.mh-fg:last-of-type{border-bottom:0;}
+.mh-fg-h{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--sh-mut);margin-bottom:2px;}
+.mh-fg-chips,.mh-fg-pills{display:flex;flex-wrap:wrap;gap:8px;}
+.mh-f-chip,.mh-f-pill{
+  cursor:pointer;background:transparent;border:1px solid var(--sh-line);color:var(--sh-txt);
+  font:inherit;font-size:13px;border-radius:999px;transition:all .18s ease;
+}
+.mh-f-chip{padding:7px 14px;}
+.mh-f-pill{padding:7px 0;width:44px;text-align:center;}
+.mh-f-chip:hover,.mh-f-pill:hover{border-color:var(--sh-gold);}
+.mh-f-chip.is-on,.mh-f-pill.is-on{background:var(--sh-gold);border-color:var(--sh-gold);color:#110d0c;font-weight:700;}
+.mh-fg-2col{display:grid;grid-template-columns:1fr 1fr;gap:18px;border-bottom:1px solid var(--sh-line-2);}
+.mh-fg-2col>div{display:flex;flex-direction:column;gap:9px;}
+.mh-f-check{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--sh-txt);cursor:pointer;}
+.mh-f-check input{
+  appearance:none;-webkit-appearance:none;flex:0 0 auto;
+  width:17px;height:17px;border:1px solid var(--sh-line);border-radius:5px;cursor:pointer;
+  display:grid;place-content:center;transition:all .15s ease;
+}
+.mh-f-check input:checked{background:var(--sh-gold);border-color:var(--sh-gold);}
+.mh-f-check input:checked::after{content:"";width:9px;height:9px;clip-path:polygon(14% 44%,0 65%,50% 100%,100% 16%,80% 0%,43% 62%);background:#110d0c;}
+.mh-f-range{display:flex;align-items:center;gap:8px;}
+.mh-f-num{
+  width:100%;min-width:0;background:var(--sh-card);border:1px solid var(--sh-line);
+  color:var(--sh-txt);font:inherit;font-size:13px;padding:9px 10px;border-radius:8px;outline:none;
+}
+.mh-f-num:focus{border-color:var(--sh-gold);}
+.mh-f-num::placeholder{color:var(--sh-mut-2);}
+.mh-f-dash{color:var(--sh-mut-2);}
+.mh-shop-apply{display:none;}
+
+/* Grid de resultados */
+.mh-shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px;}
+.mh-shop-empty{grid-column:1/-1;color:var(--sh-mut);font-size:15px;padding:40px 0;text-align:center;}
+.mh-shop-empty button{background:none;border:0;color:var(--sh-gold);cursor:pointer;font:inherit;text-decoration:underline;}
+
+/* Tarjeta */
+.mh-shop-card{
+  display:flex;flex-direction:column;
+  background:var(--sh-card);border:1px solid var(--sh-line);border-radius:16px;overflow:hidden;
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.mh-shop-card:hover{transform:translateY(-4px);border-color:rgba(197,168,128,.4);box-shadow:0 20px 44px rgba(0,0,0,.5);}
+.mh-shop-media{position:relative;aspect-ratio:4/3;overflow:hidden;background:#0a0908;}
+.mh-shop-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.mh-shop-card:hover .mh-shop-media img{transform:scale(1.05);}
+.mh-shop-badges{position:absolute;top:12px;left:12px;display:flex;flex-wrap:wrap;gap:6px;z-index:2;max-width:78%;}
+.mh-badge{
+  font-size:11px;font-weight:700;letter-spacing:.02em;padding:5px 10px;border-radius:999px;
+  color:#fff;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.35);
+}
+.mh-badge--nuevo{background:#1f9d61;}
+.mh-badge--promo{background:#d08a2e;}
+.mh-badge--preciorebajado{background:#c0562e;}
+.mh-badge--destacado{background:rgba(255,255,255,.92);color:#110d0c;}
+.mh-badge--ultima{background:#c0392b;}
+.mh-badge--premium{background:#7a4fd0;}
+.mh-shop-cat{
+  position:absolute;top:12px;right:12px;z-index:2;
+  font-size:11px;font-weight:700;padding:5px 10px;border-radius:999px;
+  background:rgba(12,10,9,.72);color:#fff;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+  border:1px solid rgba(255,255,255,.14);
+}
+.mh-shop-cardbody{display:flex;flex-direction:column;gap:6px;padding:16px 16px 18px;flex:1;}
+.mh-shop-cardtitle{font-size:16px;font-weight:600;color:#fff;line-height:1.25;margin:0;}
+.mh-shop-cardsub{font-size:13px;color:var(--sh-mut-2);margin:0;}
+.mh-shop-price{font-family:var(--mh-serif),Georgia,serif;font-size:22px;font-weight:700;color:var(--sh-gold);margin:4px 0 0;letter-spacing:.01em;}
+.mh-shop-specs{font-family:var(--mh-mono),ui-monospace,monospace;font-size:12px;color:var(--sh-mut);margin:0;}
+.mh-shop-cardfoot{display:flex;align-items:center;gap:10px;margin-top:auto;padding-top:12px;}
+.mh-shop-detail{
+  background:none;border:0;cursor:pointer;color:var(--sh-mut);font:inherit;font-size:13px;
+  text-decoration:underline;text-underline-offset:3px;padding:0;
+}
+.mh-shop-detail:hover{color:var(--sh-txt);}
+.mh-shop-add{
+  margin-left:auto;cursor:pointer;border:0;
+  background:#fff;color:#110d0c;font:inherit;font-weight:700;font-size:13px;
+  padding:9px 18px;border-radius:999px;transition:background-color .2s ease,transform .2s ease;
+  display:inline-flex;align-items:center;gap:7px;
+}
+.mh-shop-add:hover{transform:translateY(-1px);}
+.mh-shop-add.is-in{background:var(--sh-gold);}
+.mh-shop-add svg{width:14px;height:14px;}
+
+/* FAB carrito */
+.mh-cart-fab{
+  position:fixed;right:20px;bottom:20px;z-index:1200;
+  width:56px;height:56px;border-radius:50%;cursor:pointer;border:1px solid var(--sh-line);
+  background:linear-gradient(135deg,#c5a880,#a48256);color:#110d0c;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 14px 34px rgba(0,0,0,.4);transition:transform .2s ease;
+}
+.mh-cart-fab:hover{transform:translateY(-3px);}
+.mh-cart-fab svg{width:24px;height:24px;}
+.mh-cart-fab-count{
+  position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 5px;
+  border-radius:999px;background:#110d0c;color:#fff;font-size:11px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;border:2px solid var(--sh-gold);
+}
+
+/* Overlay compartido */
+.mh-cart-overlay{position:fixed;inset:0;z-index:1250;background:rgba(6,5,4,.6);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);}
+
+/* Drawer carrito */
+.mh-cart-drawer{
+  position:fixed;top:0;right:0;z-index:1300;height:100%;width:400px;max-width:92vw;
+  background:var(--sh-bg);border-left:1px solid var(--sh-line);color:var(--sh-txt);
+  display:flex;flex-direction:column;
+  transform:translateX(102%);transition:transform .35s cubic-bezier(.22,1,.36,1);
+  font-family:var(--mh-sans),system-ui,sans-serif;
+}
+.mh-cart-drawer.is-open{transform:translateX(0);}
+.mh-cart-drawer-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 22px;border-bottom:1px solid var(--sh-line-2);font-size:15px;font-weight:700;color:#fff;
+}
+.mh-cart-x{background:none;border:0;color:var(--sh-mut);font-size:26px;line-height:1;cursor:pointer;}
+.mh-cart-lines{flex:1;overflow-y:auto;padding:8px 22px;}
+.mh-cart-line{display:grid;grid-template-columns:56px 1fr auto;gap:12px;padding:16px 0;border-bottom:1px solid var(--sh-line-2);}
+.mh-cart-line-img{width:56px;height:56px;border-radius:8px;object-fit:cover;}
+.mh-cart-line-name{font-size:13px;font-weight:600;color:#fff;margin:0 0 3px;line-height:1.3;}
+.mh-cart-line-unit{font-size:12px;color:var(--sh-mut-2);font-family:var(--mh-mono),monospace;}
+.mh-cart-qty{display:inline-flex;align-items:center;gap:8px;margin-top:8px;}
+.mh-cart-qty button{
+  width:24px;height:24px;border-radius:6px;border:1px solid var(--sh-line);background:transparent;
+  color:var(--sh-txt);font-size:14px;line-height:1;cursor:pointer;
+}
+.mh-cart-qty span{font-size:13px;min-width:16px;text-align:center;}
+.mh-cart-line-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;}
+.mh-cart-line-sub{font-size:13px;font-weight:700;color:var(--sh-gold);font-family:var(--mh-serif),serif;}
+.mh-cart-rm{background:none;border:0;color:var(--sh-mut-2);font-size:12px;cursor:pointer;text-decoration:underline;}
+.mh-cart-empty{padding:40px 22px;color:var(--sh-mut);font-size:14px;text-align:center;}
+.mh-cart-foot{padding:18px 22px 22px;border-top:1px solid var(--sh-line-2);}
+.mh-cart-sub{display:flex;align-items:baseline;justify-content:space-between;font-size:14px;color:var(--sh-mut);}
+.mh-cart-sub strong{font-family:var(--mh-serif),serif;font-size:22px;color:var(--sh-gold);}
+.mh-cart-note{font-size:11px;color:var(--sh-mut-2);margin:8px 0 14px;line-height:1.4;}
+.mh-cart-checkout{
+  width:100%;border:0;cursor:pointer;background:#fff;color:#110d0c;
+  font:inherit;font-weight:700;font-size:14px;padding:14px;border-radius:10px;
+  transition:transform .2s ease;
+}
+.mh-cart-checkout:hover{transform:translateY(-1px);}
+
+/* Modales */
+.mh-modal{position:fixed;inset:0;z-index:1400;display:flex;align-items:center;justify-content:center;padding:20px;}
+.mh-modal-scrim{position:absolute;inset:0;background:rgba(6,5,4,.72);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);}
+.mh-modal-box{
+  position:relative;z-index:1;background:var(--sh-card);border:1px solid var(--sh-line);
+  border-radius:18px;max-width:920px;width:100%;max-height:90vh;overflow:auto;
+  box-shadow:0 40px 90px rgba(0,0,0,.6);color:var(--sh-txt);
+  font-family:var(--mh-sans),system-ui,sans-serif;
+}
+.mh-modal-x{position:absolute;top:12px;right:14px;z-index:3;background:rgba(0,0,0,.35);border:0;color:#fff;width:32px;height:32px;border-radius:50%;font-size:20px;line-height:1;cursor:pointer;}
+
+/* Quick view */
+.mh-qv-box{display:grid;grid-template-columns:1.1fr 1fr;}
+.mh-qv-media{background:#0a0908;}
+.mh-qv-media img{width:100%;height:100%;object-fit:cover;min-height:300px;}
+.mh-qv-info{padding:28px;display:flex;flex-direction:column;gap:8px;}
+.mh-qv-cat{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sh-gold);}
+.mh-qv-info h3{font-family:var(--mh-serif),serif;font-size:26px;font-weight:600;color:#fff;margin:0;line-height:1.15;}
+.mh-qv-sub{font-size:13px;color:var(--sh-mut-2);margin:0;}
+.mh-qv-price{font-family:var(--mh-serif),serif;font-size:26px;font-weight:700;color:var(--sh-gold);margin:6px 0 0;}
+.mh-qv-specs{font-family:var(--mh-mono),monospace;font-size:12px;color:var(--sh-mut);margin:0;}
+.mh-qv-desc{font-size:14px;line-height:1.6;color:var(--sh-txt);margin:8px 0;}
+.mh-qv-feats{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.mh-qv-feats li{font-size:13px;color:var(--sh-mut);display:flex;align-items:center;gap:7px;}
+.mh-qv-feats li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--sh-gold);flex:0 0 auto;}
+.mh-qv-add{
+  margin-top:14px;border:0;cursor:pointer;background:var(--sh-gold);color:#110d0c;
+  font:inherit;font-weight:700;font-size:14px;padding:13px 22px;border-radius:999px;align-self:flex-start;
+  transition:transform .2s ease;
+}
+.mh-qv-add:hover{transform:translateY(-1px);}
+
+/* Checkout */
+.mh-co-box{max-width:860px;}
+.mh-co-grid{display:grid;grid-template-columns:1.15fr .85fr;}
+.mh-co-form{padding:32px;display:flex;flex-direction:column;gap:14px;border-right:1px solid var(--sh-line-2);}
+.mh-co-form h3{font-family:var(--mh-serif),serif;font-size:24px;font-weight:600;color:#fff;margin:0;}
+.mh-co-lead{font-size:13px;color:var(--sh-mut);margin:-4px 0 6px;line-height:1.5;}
+.mh-co-form label{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--sh-mut);}
+.mh-co-form input,.mh-co-form textarea{
+  background:var(--sh-bg);border:1px solid var(--sh-line);border-radius:9px;
+  color:var(--sh-txt);font:inherit;font-size:14px;font-weight:400;text-transform:none;letter-spacing:normal;
+  padding:11px 13px;outline:none;transition:border-color .2s ease,box-shadow .2s ease;
+}
+.mh-co-form input:focus,.mh-co-form textarea:focus{border-color:var(--sh-gold);box-shadow:0 0 0 3px rgba(197,168,128,.16);}
+.mh-co-form input.mh-invalid,.mh-co-form textarea.mh-invalid{border-color:#c0392b;}
+.mh-co-form textarea{resize:vertical;min-height:70px;}
+.mh-co-err{color:#e07a6b;font-size:12px;font-weight:600;margin:0;text-transform:none;letter-spacing:normal;}
+.mh-co-submit{
+  margin-top:6px;border:0;cursor:pointer;background:#fff;color:#110d0c;
+  font:inherit;font-weight:700;font-size:14px;padding:14px;border-radius:10px;transition:transform .2s ease;
+}
+.mh-co-submit:hover{transform:translateY(-1px);}
+.mh-co-summary{padding:32px;display:flex;flex-direction:column;gap:10px;background:rgba(0,0,0,.18);}
+.mh-co-summary h4{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--sh-mut);margin:0 0 4px;}
+.mh-co-items{display:flex;flex-direction:column;gap:10px;}
+.mh-co-item{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--sh-txt);}
+.mh-co-item span:first-child{color:var(--sh-mut);}
+.mh-co-item strong{font-family:var(--mh-mono),monospace;font-weight:600;}
+.mh-co-total{display:flex;align-items:baseline;justify-content:space-between;margin-top:8px;padding-top:12px;border-top:1px solid var(--sh-line-2);font-size:13px;color:var(--sh-mut);}
+.mh-co-total strong{font-family:var(--mh-serif),serif;font-size:22px;color:var(--sh-gold);}
+.mh-co-fine{font-size:11px;color:var(--sh-mut-2);line-height:1.45;margin:6px 0 0;}
+.mh-co-done{padding:56px 40px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;}
+.mh-co-check{width:64px;height:64px;border-radius:50%;background:rgba(31,157,97,.16);color:#2ec07f;display:flex;align-items:center;justify-content:center;}
+.mh-co-check svg{width:30px;height:30px;}
+.mh-co-done h3{font-family:var(--mh-serif),serif;font-size:26px;font-weight:600;color:#fff;margin:0;}
+.mh-co-done p{font-size:14px;color:var(--sh-mut);max-width:44ch;margin:0;line-height:1.6;}
+.mh-co-close2{margin-top:6px;border:1px solid var(--sh-line);background:transparent;color:var(--sh-txt);font:inherit;font-weight:600;padding:11px 26px;border-radius:999px;cursor:pointer;}
+
+/* Responsive */
+@media (max-width:1000px){
+  .mh-shop-body{grid-template-columns:1fr;}
+  .mh-shop-filters-toggle{display:inline-flex;}
+  .mh-shop-filters{
+    position:fixed;top:0;left:0;z-index:1350;height:100%;width:330px;max-width:88vw;
+    background:var(--sh-bg);border-right:1px solid var(--sh-line);
+    transform:translateX(-102%);transition:transform .32s cubic-bezier(.22,1,.36,1);overflow-y:auto;
+  }
+  .mh-shop-filters.is-open{transform:translateX(0);}
+  .mh-shop-filters-inner{position:static;padding:88px 22px 28px;top:auto;}
+  .mh-shop-filters-top{position:sticky;top:0;background:var(--sh-bg);padding:14px 0;margin:-14px 0 0;z-index:2;}
+  .mh-shop-filters-close{display:block;margin-left:4px;}
+  .mh-shop-filters-scrim{position:fixed;inset:0;z-index:1340;background:rgba(6,5,4,.6);}
+  .mh-shop-filters-scrim[hidden]{display:none;}
+  .mh-shop-apply{
+    display:block;width:100%;margin-top:8px;border:0;cursor:pointer;
+    background:var(--sh-gold);color:#110d0c;font:inherit;font-weight:700;font-size:14px;
+    padding:13px;border-radius:10px;
+  }
+}
+@media (max-width:640px){
+  .mh-shop{overflow-x:clip;}
+  .mh-shop-grid{grid-template-columns:1fr;}
+  .mh-shop-search{max-width:none;padding:6px 6px 6px 14px;}
+  .mh-shop-search-input{font-size:14px;min-width:40px;}
+  .mh-shop-search-btn{padding:11px 16px;}
+  .mh-shop-bar{gap:12px;}
+  .mh-shop-bar-right{flex-wrap:wrap;width:100%;}
+  .mh-shop-filters-toggle{flex:0 0 auto;}
+  .mh-shop-sort{flex:1;min-width:0;}
+  .mh-shop-sort span{display:none;}
+  .mh-shop-sort select{flex:1;min-width:0;width:100%;}
+  .mh-qv-box{grid-template-columns:1fr;}
+  .mh-qv-media img{min-height:220px;max-height:280px;}
+  .mh-co-grid{grid-template-columns:1fr;}
+  .mh-co-form{border-right:0;border-bottom:1px solid var(--sh-line-2);}
+  .mh-cart-fab{right:14px;bottom:14px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .mh-shop-card,.mh-cart-drawer,.mh-shop-filters,.mh-shop-media img,.mh-cart-fab,.mh-shop-add{transition:none!important;}
+}
+</style>
+
 </head>
 <body data-rsssl=1 class="home wp-singular page-template-default page page-id-21244404 wp-theme-Divi dipi-shrink-header slide_up_below dipi-custom-archive-page dipi-archive- dipi-fix-search-icon dipi-anim-preload et-tb-has-template et-tb-has-footer et_pb_button_helper_class et_transparent_nav et_fixed_nav et_show_nav et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_header_style_left et_pb_svg_logo et_cover_background et_pb_gutter windows et_pb_gutters3 et_pb_pagebuilder_layout et_smooth_scroll et_no_sidebar et_divi_theme et-db">
 	<div id="page-container">
@@ -1829,6 +2181,7 @@ footer.et-l--footer,
 									<nav id="top-menu-nav">
 					<ul id="top-menu" class="nav"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21244424"><a href="#inicio">Inicio</a></li>
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21244425"><a href="#casas">Casas</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom mh-nav-modelos"><a href="#modelos">Modelos</a></li>
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21244426"><a href="#contacto">Contacto</a></li>
 </ul>					</nav>
 				
@@ -1920,7 +2273,212 @@ footer.et-l--footer,
 			</div>
 				
 				<div class="et_pb_bottom_inside_divider et-no-transition"></div>
-			</div><div class="et_pb_section et_pb_section_1 et_pb_with_background et_section_regular" >
+			</div>
+<section id="modelos" class="mh-shop" aria-label="Cat&aacute;logo de modelos">
+	<div class="mh-shop-inner">
+		<header class="mh-shop-head">
+			<span class="mh-shop-eyebrow">Cat&aacute;logo</span>
+			<h2 class="mh-shop-title">Nuestros modelos</h2>
+			<form class="mh-shop-search" role="search" onsubmit="return false">
+				<svg class="mh-shop-search-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+				<input type="search" class="mh-shop-search-input" id="mh-shop-q" placeholder="Busca por modelo, tipo o regi&oacute;n (ej: Aitu&eacute;, kit, Biob&iacute;o)" autocomplete="off" />
+				<button type="submit" class="mh-shop-search-btn">Buscar</button>
+			</form>
+		</header>
+
+		<div class="mh-shop-bar">
+			<span class="mh-shop-count" id="mh-shop-count">9 modelos</span>
+			<div class="mh-shop-bar-right">
+				<button type="button" class="mh-shop-filters-toggle" id="mh-shop-filters-toggle" aria-expanded="false">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+					Filtros
+				</button>
+				<label class="mh-shop-sort">
+					<span>Ordenar</span>
+					<select id="mh-shop-sort">
+						<option value="recientes">M&aacute;s recientes</option>
+						<option value="precio-asc">Precio: menor a mayor</option>
+						<option value="precio-desc">Precio: mayor a menor</option>
+						<option value="superficie">Superficie</option>
+					</select>
+				</label>
+			</div>
+		</div>
+
+		<div class="mh-shop-body">
+			<aside class="mh-shop-filters" id="mh-shop-filters" aria-label="Filtros">
+				<div class="mh-shop-filters-inner">
+					<div class="mh-shop-filters-top">
+						<span class="mh-shop-filters-h">Filtros</span>
+						<button type="button" class="mh-shop-clear" id="mh-shop-clear">Limpiar todo</button>
+						<button type="button" class="mh-shop-filters-close" id="mh-shop-filters-close" aria-label="Cerrar filtros">&times;</button>
+					</div>
+
+					<div class="mh-fg">
+						<span class="mh-fg-h">Operaci&oacute;n</span>
+						<div class="mh-fg-chips">
+							<button type="button" class="mh-f-chip" data-filter="op" data-value="comprar">Comprar</button>
+							<button type="button" class="mh-f-chip" data-filter="op" data-value="financiar">Financiar</button>
+						</div>
+					</div>
+
+					<div class="mh-fg">
+						<span class="mh-fg-h">Tipo de modelo</span>
+						<label class="mh-f-check"><input type="checkbox" data-filter="cat" value="casa"><span>Casa</span></label>
+						<label class="mh-f-check"><input type="checkbox" data-filter="cat" value="kit"><span>Kit</span></label>
+						<label class="mh-f-check"><input type="checkbox" data-filter="cat" value="ampliacion"><span>Ampliaci&oacute;n</span></label>
+						<label class="mh-f-check"><input type="checkbox" data-filter="cat" value="cabana"><span>Caba&ntilde;a</span></label>
+						<label class="mh-f-check"><input type="checkbox" data-filter="cat" value="segunda"><span>Segunda vivienda</span></label>
+						<label class="mh-f-check"><input type="checkbox" data-filter="cat" value="oficina"><span>Oficina modular</span></label>
+					</div>
+
+					<div class="mh-fg">
+						<span class="mh-fg-h">Precio (CLP)</span>
+						<div class="mh-f-range">
+							<input type="number" inputmode="numeric" class="mh-f-num" data-filter="priceMin" placeholder="M&iacute;n" min="0" />
+							<span class="mh-f-dash">&mdash;</span>
+							<input type="number" inputmode="numeric" class="mh-f-num" data-filter="priceMax" placeholder="M&aacute;x" min="0" />
+						</div>
+					</div>
+
+					<div class="mh-fg mh-fg-2col">
+						<div>
+							<span class="mh-fg-h">Dormitorios</span>
+							<div class="mh-fg-pills">
+								<button type="button" class="mh-f-pill" data-filter="dorm" data-value="1">1</button>
+								<button type="button" class="mh-f-pill" data-filter="dorm" data-value="2">2</button>
+								<button type="button" class="mh-f-pill" data-filter="dorm" data-value="3">3</button>
+								<button type="button" class="mh-f-pill" data-filter="dorm" data-value="4">4+</button>
+							</div>
+						</div>
+						<div>
+							<span class="mh-fg-h">Ba&ntilde;os</span>
+							<div class="mh-fg-pills">
+								<button type="button" class="mh-f-pill" data-filter="banos" data-value="1">1</button>
+								<button type="button" class="mh-f-pill" data-filter="banos" data-value="2">2</button>
+								<button type="button" class="mh-f-pill" data-filter="banos" data-value="3">3+</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="mh-fg">
+						<span class="mh-fg-h">Superficie (m&sup2;)</span>
+						<div class="mh-f-range">
+							<input type="number" inputmode="numeric" class="mh-f-num" data-filter="areaMin" placeholder="M&iacute;n" min="0" />
+							<span class="mh-f-dash">&mdash;</span>
+							<input type="number" inputmode="numeric" class="mh-f-num" data-filter="areaMax" placeholder="M&aacute;x" min="0" />
+						</div>
+					</div>
+
+					<div class="mh-fg">
+						<span class="mh-fg-h">Caracter&iacute;sticas</span>
+						<label class="mh-f-check"><input type="checkbox" data-filter="feat" value="terraza"><span>Terraza</span></label>
+						<label class="mh-f-check"><input type="checkbox" data-filter="feat" value="radier"><span>Radier incluido</span></label>
+						<label class="mh-f-check"><input type="checkbox" data-filter="feat" value="doblevidrio"><span>Doble vidrio</span></label>
+						<label class="mh-f-check"><input type="checkbox" data-filter="feat" value="aislacion"><span>Aislaci&oacute;n reforzada</span></label>
+						<label class="mh-f-check"><input type="checkbox" data-filter="feat" value="entregarapida"><span>Entrega r&aacute;pida</span></label>
+						<label class="mh-f-check"><input type="checkbox" data-filter="feat" value="financiamiento"><span>Financiamiento</span></label>
+						<label class="mh-f-check"><input type="checkbox" data-filter="feat" value="llaveenmano"><span>Llave en mano</span></label>
+						<label class="mh-f-check"><input type="checkbox" data-filter="feat" value="ampliable"><span>Ampliable</span></label>
+					</div>
+
+					<div class="mh-fg">
+						<span class="mh-fg-h">Etiquetas</span>
+						<label class="mh-f-check"><input type="checkbox" data-filter="tag" value="nuevo"><span>Nuevo</span></label>
+						<label class="mh-f-check"><input type="checkbox" data-filter="tag" value="promo"><span>Promoci&oacute;n</span></label>
+						<label class="mh-f-check"><input type="checkbox" data-filter="tag" value="preciorebajado"><span>Precio rebajado</span></label>
+						<label class="mh-f-check"><input type="checkbox" data-filter="tag" value="destacado"><span>Destacada</span></label>
+						<label class="mh-f-check"><input type="checkbox" data-filter="tag" value="ultima"><span>&Uacute;ltima unidad</span></label>
+						<label class="mh-f-check"><input type="checkbox" data-filter="tag" value="premium"><span>Premium</span></label>
+					</div>
+
+					<button type="button" class="mh-shop-apply" id="mh-shop-apply">Ver resultados</button>
+				</div>
+			</aside>
+			<div class="mh-shop-filters-scrim" id="mh-shop-filters-scrim" hidden></div>
+
+			<div class="mh-shop-results">
+				<div class="mh-shop-grid" id="mh-shop-grid"></div>
+				<p class="mh-shop-empty" id="mh-shop-empty" hidden>No hay modelos que coincidan con tu b&uacute;squeda. <button type="button" id="mh-shop-empty-clear">Limpiar filtros</button></p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bot&oacute;n flotante del carrito -->
+	<button type="button" class="mh-cart-fab" id="mh-cart-fab" aria-label="Ver selecci&oacute;n" hidden>
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+		<span class="mh-cart-fab-count" id="mh-cart-fab-count">0</span>
+	</button>
+
+	<!-- Drawer del carrito -->
+	<div class="mh-cart-overlay" id="mh-cart-overlay" hidden></div>
+	<aside class="mh-cart-drawer" id="mh-cart-drawer" aria-label="Tu selecci&oacute;n" aria-hidden="true">
+		<div class="mh-cart-drawer-head">
+			<span>Tu selecci&oacute;n</span>
+			<button type="button" class="mh-cart-x" id="mh-cart-close" aria-label="Cerrar">&times;</button>
+		</div>
+		<div class="mh-cart-lines" id="mh-cart-lines"></div>
+		<p class="mh-cart-empty" id="mh-cart-empty">A&uacute;n no has agregado modelos.</p>
+		<div class="mh-cart-foot" id="mh-cart-foot">
+			<div class="mh-cart-sub"><span>Subtotal referencial</span><strong id="mh-cart-subtotal">$0</strong></div>
+			<p class="mh-cart-note">El valor final depende del terreno, la fundaci&oacute;n y las terminaciones.</p>
+			<button type="button" class="mh-cart-checkout" id="mh-cart-checkout">Continuar</button>
+		</div>
+	</aside>
+
+	<!-- Modal quick-view -->
+	<div class="mh-modal" id="mh-qv" hidden>
+		<div class="mh-modal-scrim" data-close></div>
+		<div class="mh-modal-box mh-qv-box" role="dialog" aria-modal="true" aria-label="Detalle del modelo">
+			<button type="button" class="mh-modal-x" data-close aria-label="Cerrar">&times;</button>
+			<div class="mh-qv-media"><img id="mh-qv-img" src="" alt="" /></div>
+			<div class="mh-qv-info">
+				<span class="mh-qv-cat" id="mh-qv-cat"></span>
+				<h3 id="mh-qv-name"></h3>
+				<p class="mh-qv-sub" id="mh-qv-sub"></p>
+				<p class="mh-qv-price" id="mh-qv-price"></p>
+				<p class="mh-qv-specs" id="mh-qv-specs"></p>
+				<p class="mh-qv-desc" id="mh-qv-desc"></p>
+				<ul class="mh-qv-feats" id="mh-qv-feats"></ul>
+				<button type="button" class="mh-qv-add" id="mh-qv-add">Agregar a mi selecci&oacute;n</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal checkout -->
+	<div class="mh-modal" id="mh-co" hidden>
+		<div class="mh-modal-scrim" data-close></div>
+		<div class="mh-modal-box mh-co-box" role="dialog" aria-modal="true" aria-label="Finalizar solicitud">
+			<button type="button" class="mh-modal-x" data-close aria-label="Cerrar">&times;</button>
+			<div class="mh-co-grid" id="mh-co-grid">
+				<form class="mh-co-form" id="mh-co-form" novalidate>
+					<h3>Finalizar solicitud</h3>
+					<p class="mh-co-lead">D&eacute;janos tus datos y te contactamos para coordinar el pago y la entrega.</p>
+					<label>Nombre<input type="text" name="nombre" required></label>
+					<label>Email<input type="email" name="email" required></label>
+					<label>Tel&eacute;fono<input type="tel" name="telefono" required></label>
+					<label>Comuna<input type="text" name="comuna" required></label>
+					<label>Mensaje (opcional)<textarea name="mensaje" rows="3"></textarea></label>
+					<p class="mh-co-err" id="mh-co-err" hidden>Revisa los campos marcados.</p>
+					<button type="submit" class="mh-co-submit">Confirmar solicitud</button>
+				</form>
+				<div class="mh-co-summary">
+					<h4>Tu pedido</h4>
+					<div class="mh-co-items" id="mh-co-items"></div>
+					<div class="mh-co-total"><span>Total referencial</span><strong id="mh-co-total">$0</strong></div>
+					<p class="mh-co-fine">Presupuesto sujeto a visita t&eacute;cnica. No se realiza ning&uacute;n cobro en este paso.</p>
+				</div>
+			</div>
+			<div class="mh-co-done" id="mh-co-done" hidden>
+				<div class="mh-co-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+				<h3>&iexcl;Solicitud recibida!</h3>
+				<p>Gracias por tu inter&eacute;s. Un asesor de Main House te contactar&aacute; a la brevedad para coordinar el pago y la entrega de tu modelo.</p>
+				<button type="button" class="mh-co-close2" data-close>Cerrar</button>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="et_pb_section et_pb_section_1 et_pb_with_background et_section_regular" >
 				
 				
 				
@@ -3080,6 +3638,344 @@ var et_pb_box_shadow_elements = [];
 
   if(total>1)setInterval(function(){if(!hovered)next();},DELAY);
   layout();
+})();
+</script>
+
+<script id="mainhouse-shop-js">
+(function(){
+  var root=document.getElementById('modelos');
+  if(!root)return;
+
+  /* ---------- Datos (9 modelos ficticios) ---------- */
+  var CAT={casa:'Casa',kit:'Kit',ampliacion:'Ampliación',cabana:'Cabaña',segunda:'Segunda vivienda',oficina:'Oficina modular'};
+  var TAG={nuevo:'Nuevo',promo:'Promoción',preciorebajado:'Precio rebajado',destacado:'Destacada',ultima:'Última unidad',premium:'Premium'};
+  var FEAT={terraza:'Terraza',radier:'Radier incluido',doblevidrio:'Doble vidrio',aislacion:'Aislación reforzada',entregarapida:'Entrega rápida',financiamiento:'Financiamiento',llaveenmano:'Llave en mano',ampliable:'Ampliable'};
+
+  var P=[
+    {id:'aitue',name:'Modelo Aitué',cat:'casa',price:42900000,area:72,dorm:3,banos:2,region:'Región Metropolitana',ops:['comprar','financiar'],tags:['nuevo'],features:['terraza','radier','llaveenmano','doblevidrio'],img:'img/casa-01.jpg',desc:'Casa de un piso con living-comedor integrado y terraza cubierta. Revestimiento de madera y ventanales amplios; se entrega lista para habitar sobre radier.'},
+    {id:'boldo',name:'Modelo Boldo',cat:'casa',price:31500000,area:54,dorm:2,banos:1,region:'Región Metropolitana',ops:['comprar'],tags:['promo','preciorebajado'],features:['radier','entregarapida'],img:'img/casa-02.jpg',desc:'Modelo compacto y eficiente, ideal como primera vivienda o para arriendo. Planta abierta, dos dormitorios y despacho rápido en obra.'},
+    {id:'canelo',name:'Modelo Canelo',cat:'casa',price:58400000,area:96,dorm:3,banos:2,region:'Región de Valparaíso',ops:['comprar','financiar'],tags:['destacado'],features:['doblevidrio','aislacion','llaveenmano','terraza'],img:'img/casa-03.jpg',desc:'Casa familiar con gran ventanal panorámico, aislación reforzada y terminaciones de alto estándar. Pensada para clima costero.'},
+    {id:'peumo',name:'Modelo Peumo',cat:'casa',price:74900000,area:120,dorm:4,banos:3,region:'Región Metropolitana',ops:['comprar','financiar'],tags:['premium'],features:['doblevidrio','aislacion','ampliable','financiamiento','llaveenmano'],img:'img/casa-04.jpg',desc:'Nuestro modelo más amplio: cuatro dormitorios, suite principal y espacio flexible ampliable. Entrega premium llave en mano.'},
+    {id:'litre',name:'Modelo Litre',cat:'segunda',price:24900000,area:42,dorm:1,banos:1,region:"Región de O'Higgins",ops:['comprar'],tags:['ultima'],features:['entregarapida','terraza'],img:'img/casa-05.jpg',desc:'Cabaña-refugio de bajo mantenimiento con terraza y gran ventanal. Perfecta como segunda vivienda de fin de semana.'},
+    {id:'ampsur18',name:'Ampliación Sur 18',cat:'ampliacion',price:8900000,area:18,dorm:0,banos:0,region:'Región Metropolitana',ops:['comprar'],tags:['nuevo'],features:['radier','entregarapida','ampliable'],img:'img/casa-01.jpg',desc:'Módulo de ampliación de 18 m² para sumar dormitorio, oficina o sala de estar a tu casa actual. Montaje en pocos días.'},
+    {id:'maiten',name:'Modelo Maitén',cat:'casa',price:49900000,area:84,dorm:3,banos:2,region:'Región del Biobío',ops:['comprar','financiar'],tags:['nuevo'],features:['terraza','doblevidrio','financiamiento'],img:'img/casa-02.jpg',desc:'Casa de tres dormitorios con logia y terraza lateral. Doble vidriado hermético y opción de financiamiento directo.'},
+    {id:'quillay',name:'Modelo Quillay',cat:'casa',price:66200000,area:108,dorm:4,banos:2,region:'Región Metropolitana',ops:['comprar','financiar'],tags:['destacado'],features:['aislacion','ampliable','llaveenmano','financiamiento'],img:'img/casa-03.jpg',desc:'Casa de cuatro dormitorios en un nivel, con muro térmico reforzado y estructura preparada para futura ampliación.'},
+    {id:'arrayan',name:'Modelo Arrayán',cat:'kit',price:38700000,area:66,dorm:2,banos:2,region:'Región de La Araucanía',ops:['comprar'],tags:['promo'],features:['ampliable','entregarapida'],img:'img/casa-04.jpg',desc:'Kit de autoconstrucción asistida: paneles numerados, planos y acompañamiento técnico. Dos dormitorios ampliables a tres.'}
+  ];
+
+  /* ---------- Utilidades ---------- */
+  function money(n){
+    return '$'+String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+  }
+  var storeOK=true;
+  function loadCart(){
+    try{var r=localStorage.getItem('mh_cart');return r?JSON.parse(r):{};}catch(e){storeOK=false;return window.__mhCart||{};}
+  }
+  function saveCart(c){
+    window.__mhCart=c;
+    try{if(storeOK)localStorage.setItem('mh_cart',JSON.stringify(c));}catch(e){storeOK=false;}
+  }
+  var cart=loadCart();
+  function byId(id){for(var i=0;i<P.length;i++)if(P[i].id===id)return P[i];return null;}
+  function cartCount(){var n=0;for(var k in cart)n+=cart[k];return n;}
+  function cartTotal(){var t=0;for(var k in cart){var p=byId(k);if(p)t+=p.price*cart[k];}return t;}
+
+  /* ---------- Filtros ---------- */
+  var qEl=root.querySelector('#mh-shop-q');
+  var sortEl=root.querySelector('#mh-shop-sort');
+  var gridEl=root.querySelector('#mh-shop-grid');
+  var emptyEl=root.querySelector('#mh-shop-empty');
+  var countEl=root.querySelector('#mh-shop-count');
+
+  function activeVals(filter){
+    var out=[];
+    root.querySelectorAll('[data-filter="'+filter+'"]').forEach(function(el){
+      if(el.tagName==='INPUT'&&el.type==='checkbox'){if(el.checked)out.push(el.value);}
+      else if(el.classList&&(el.classList.contains('mh-f-chip')||el.classList.contains('mh-f-pill'))){if(el.classList.contains('is-on'))out.push(el.getAttribute('data-value'));}
+    });
+    return out;
+  }
+  function numVal(filter){
+    var el=root.querySelector('[data-filter="'+filter+'"]');
+    var v=el&&el.value!==''?parseInt(el.value,10):NaN;
+    return isNaN(v)?null:v;
+  }
+
+  function currentList(){
+    var q=(qEl.value||'').trim().toLowerCase();
+    var ops=activeVals('op'), cats=activeVals('cat'), feats=activeVals('feat'), tags=activeVals('tag');
+    var dorms=activeVals('dorm').map(Number), banos=activeVals('banos').map(Number);
+    var pMin=numVal('priceMin'), pMax=numVal('priceMax'), aMin=numVal('areaMin'), aMax=numVal('areaMax');
+
+    var list=P.filter(function(p){
+      if(q){
+        var hay=(p.name+' '+CAT[p.cat]+' '+p.region).toLowerCase();
+        if(hay.indexOf(q)===-1)return false;
+      }
+      if(ops.length&&!ops.some(function(o){return p.ops.indexOf(o)>-1;}))return false;
+      if(cats.length&&cats.indexOf(p.cat)===-1)return false;
+      if(feats.length&&!feats.every(function(f){return p.features.indexOf(f)>-1;}))return false;
+      if(tags.length&&!tags.some(function(t){return p.tags.indexOf(t)>-1;}))return false;
+      if(dorms.length){
+        var okD=dorms.some(function(d){return d===4?p.dorm>=4:p.dorm===d;});
+        if(!okD)return false;
+      }
+      if(banos.length){
+        var okB=banos.some(function(b){return b===3?p.banos>=3:p.banos===b;});
+        if(!okB)return false;
+      }
+      if(pMin!=null&&p.price<pMin)return false;
+      if(pMax!=null&&p.price>pMax)return false;
+      if(aMin!=null&&p.area<aMin)return false;
+      if(aMax!=null&&p.area>aMax)return false;
+      return true;
+    });
+
+    var s=sortEl.value;
+    if(s==='precio-asc')list.sort(function(a,b){return a.price-b.price;});
+    else if(s==='precio-desc')list.sort(function(a,b){return b.price-a.price;});
+    else if(s==='superficie')list.sort(function(a,b){return b.area-a.area;});
+    return list;
+  }
+
+  function specLine(p){
+    var d=p.dorm>0?p.dorm+' dorm':'1 ambiente';
+    var b=p.banos>0?' · '+p.banos+' baño'+(p.banos>1?'s':''):'';
+    return p.area+' m² · '+d+b;
+  }
+
+  function cardHTML(p){
+    var badges=p.tags.slice(0,2).map(function(t){return '<span class="mh-badge mh-badge--'+t+'">'+TAG[t]+'</span>';}).join('');
+    var inCart=!!cart[p.id];
+    return ''+
+    '<article class="mh-shop-card" data-id="'+p.id+'">'+
+      '<div class="mh-shop-media">'+
+        '<div class="mh-shop-badges">'+badges+'</div>'+
+        '<span class="mh-shop-cat">'+CAT[p.cat]+'</span>'+
+        '<img src="'+p.img+'" alt="'+p.name+'" loading="lazy" />'+
+      '</div>'+
+      '<div class="mh-shop-cardbody">'+
+        '<h3 class="mh-shop-cardtitle">'+p.name+' — '+p.area+' m²</h3>'+
+        '<p class="mh-shop-cardsub">'+p.region+' · llave en mano</p>'+
+        '<p class="mh-shop-price">'+money(p.price)+'</p>'+
+        '<p class="mh-shop-specs">'+specLine(p)+'</p>'+
+        '<div class="mh-shop-cardfoot">'+
+          '<button type="button" class="mh-shop-detail" data-act="detail">Ver detalle</button>'+
+          '<button type="button" class="mh-shop-add'+(inCart?' is-in':'')+'" data-act="add">'+
+            (inCart?'Agregado ✓':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg> Agregar')+
+          '</button>'+
+        '</div>'+
+      '</div>'+
+    '</article>';
+  }
+
+  function render(){
+    var list=currentList();
+    gridEl.innerHTML=list.map(cardHTML).join('');
+    emptyEl.hidden=list.length>0;
+    var n=list.length;
+    countEl.textContent=n+(n===1?' modelo':' modelos');
+  }
+  function addBtnHTML(inC){
+    return inC?'Agregado ✓':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg> Agregar';
+  }
+  function updateCardButtons(){
+    gridEl.querySelectorAll('.mh-shop-card').forEach(function(card){
+      var id=card.getAttribute('data-id');
+      var btn=card.querySelector('.mh-shop-add');
+      var inC=!!cart[id];
+      btn.classList.toggle('is-in',inC);
+      btn.innerHTML=addBtnHTML(inC);
+    });
+  }
+
+  /* ---------- Interacciones de filtros ---------- */
+  root.querySelectorAll('.mh-f-chip,.mh-f-pill').forEach(function(btn){
+    btn.addEventListener('click',function(){btn.classList.toggle('is-on');render();});
+  });
+  root.querySelectorAll('.mh-f-check input,.mh-f-num').forEach(function(el){
+    el.addEventListener('input',render);el.addEventListener('change',render);
+  });
+  sortEl.addEventListener('change',render);
+  qEl.addEventListener('input',render);
+  root.querySelector('.mh-shop-search').addEventListener('submit',function(e){e.preventDefault();render();});
+
+  function clearFilters(){
+    root.querySelectorAll('.mh-f-chip.is-on,.mh-f-pill.is-on').forEach(function(b){b.classList.remove('is-on');});
+    root.querySelectorAll('.mh-f-check input:checked').forEach(function(c){c.checked=false;});
+    root.querySelectorAll('.mh-f-num').forEach(function(n){n.value='';});
+    qEl.value='';sortEl.value='recientes';render();
+  }
+  root.querySelector('#mh-shop-clear').addEventListener('click',clearFilters);
+  var emptyClr=root.querySelector('#mh-shop-empty-clear');
+  if(emptyClr)emptyClr.addEventListener('click',clearFilters);
+
+  /* Sidebar como drawer en movil */
+  var filters=root.querySelector('#mh-shop-filters');
+  var scrim=root.querySelector('#mh-shop-filters-scrim');
+  function openFilters(){filters.classList.add('is-open');scrim.hidden=false;}
+  function closeFilters(){filters.classList.remove('is-open');scrim.hidden=true;}
+  root.querySelector('#mh-shop-filters-toggle').addEventListener('click',openFilters);
+  root.querySelector('#mh-shop-filters-close').addEventListener('click',closeFilters);
+  root.querySelector('#mh-shop-apply').addEventListener('click',closeFilters);
+  scrim.addEventListener('click',closeFilters);
+
+  /* ---------- Carrito ---------- */
+  var fab=root.querySelector('#mh-cart-fab');
+  var fabCount=root.querySelector('#mh-cart-fab-count');
+  var overlay=root.querySelector('#mh-cart-overlay');
+  var drawer=root.querySelector('#mh-cart-drawer');
+  var linesEl=root.querySelector('#mh-cart-lines');
+  var cartEmptyEl=root.querySelector('#mh-cart-empty');
+  var cartFootEl=root.querySelector('#mh-cart-foot');
+  var subtotalEl=root.querySelector('#mh-cart-subtotal');
+
+  function syncFab(){
+    var n=cartCount();
+    fab.hidden=n===0;
+    fabCount.textContent=n;
+  }
+  function renderCart(){
+    var keys=Object.keys(cart);
+    if(!keys.length){
+      linesEl.innerHTML='';cartEmptyEl.hidden=false;cartFootEl.hidden=true;
+    }else{
+      cartEmptyEl.hidden=true;cartFootEl.hidden=false;
+      linesEl.innerHTML=keys.map(function(id){
+        var p=byId(id);if(!p)return '';
+        var qty=cart[id];
+        return ''+
+        '<div class="mh-cart-line" data-id="'+id+'">'+
+          '<img class="mh-cart-line-img" src="'+p.img+'" alt="" />'+
+          '<div>'+
+            '<p class="mh-cart-line-name">'+p.name+'</p>'+
+            '<span class="mh-cart-line-unit">'+money(p.price)+' c/u</span>'+
+            '<div class="mh-cart-qty">'+
+              '<button type="button" data-act="dec" aria-label="Quitar uno">−</button>'+
+              '<span>'+qty+'</span>'+
+              '<button type="button" data-act="inc" aria-label="Agregar uno">+</button>'+
+            '</div>'+
+          '</div>'+
+          '<div class="mh-cart-line-right">'+
+            '<span class="mh-cart-line-sub">'+money(p.price*qty)+'</span>'+
+            '<button type="button" class="mh-cart-rm" data-act="rm">Quitar</button>'+
+          '</div>'+
+        '</div>';
+      }).join('');
+    }
+    subtotalEl.textContent=money(cartTotal());
+    syncFab();
+  }
+  function setQty(id,q){
+    if(q<=0)delete cart[id];else cart[id]=q;
+    saveCart(cart);renderCart();updateCardButtons();
+  }
+  function addToCart(id){
+    cart[id]=(cart[id]||0)+1;saveCart(cart);renderCart();updateCardButtons();
+    fab.hidden=false;fab.animate&&fab.animate([{transform:'scale(1)'},{transform:'scale(1.15)'},{transform:'scale(1)'}],{duration:280});
+  }
+  function openDrawer(){overlay.hidden=false;drawer.classList.add('is-open');drawer.setAttribute('aria-hidden','false');}
+  function closeDrawer(){overlay.hidden=true;drawer.classList.remove('is-open');drawer.setAttribute('aria-hidden','true');}
+
+  fab.addEventListener('click',openDrawer);
+  overlay.addEventListener('click',closeDrawer);
+  root.querySelector('#mh-cart-close').addEventListener('click',closeDrawer);
+
+  linesEl.addEventListener('click',function(e){
+    var btn=e.target.closest('[data-act]');if(!btn)return;
+    var line=e.target.closest('.mh-cart-line');var id=line.getAttribute('data-id');
+    var act=btn.getAttribute('data-act');
+    if(act==='inc')setQty(id,(cart[id]||0)+1);
+    else if(act==='dec')setQty(id,(cart[id]||0)-1);
+    else if(act==='rm')setQty(id,0);
+  });
+
+  /* Grid: delegación add / detalle */
+  gridEl.addEventListener('click',function(e){
+    var btn=e.target.closest('[data-act]');if(!btn)return;
+    var card=e.target.closest('.mh-shop-card');var id=card.getAttribute('data-id');
+    if(btn.getAttribute('data-act')==='add')addToCart(id);
+    else if(btn.getAttribute('data-act')==='detail')openQV(id);
+  });
+
+  /* ---------- Quick view ---------- */
+  var qv=root.querySelector('#mh-qv');
+  var qvAddId=null;
+  function openQV(id){
+    var p=byId(id);if(!p)return;qvAddId=id;
+    root.querySelector('#mh-qv-img').src=p.img;
+    root.querySelector('#mh-qv-img').alt=p.name;
+    root.querySelector('#mh-qv-cat').textContent=CAT[p.cat];
+    root.querySelector('#mh-qv-name').textContent=p.name+' — '+p.area+' m²';
+    root.querySelector('#mh-qv-sub').textContent=p.region+' · llave en mano';
+    root.querySelector('#mh-qv-price').textContent=money(p.price);
+    root.querySelector('#mh-qv-specs').textContent=specLine(p);
+    root.querySelector('#mh-qv-desc').textContent=p.desc;
+    root.querySelector('#mh-qv-feats').innerHTML=p.features.map(function(f){return '<li>'+FEAT[f]+'</li>';}).join('');
+    var addBtn=root.querySelector('#mh-qv-add');
+    addBtn.textContent=cart[id]?'Agregado ✓':'Agregar a mi selección';
+    qv.hidden=false;
+  }
+  root.querySelector('#mh-qv-add').addEventListener('click',function(){
+    if(qvAddId){addToCart(qvAddId);this.textContent='Agregado ✓';}
+  });
+
+  /* ---------- Checkout ---------- */
+  var co=root.querySelector('#mh-co');
+  var coForm=root.querySelector('#mh-co-form');
+  var coGrid=root.querySelector('#mh-co-grid');
+  var coDone=root.querySelector('#mh-co-done');
+  var coItems=root.querySelector('#mh-co-items');
+  var coTotal=root.querySelector('#mh-co-total');
+  var coErr=root.querySelector('#mh-co-err');
+
+  function openCheckout(){
+    if(!cartCount())return;
+    coGrid.hidden=false;coDone.hidden=true;coErr.hidden=true;
+    coForm.reset();
+    coForm.querySelectorAll('.mh-invalid').forEach(function(el){el.classList.remove('mh-invalid');});
+    coItems.innerHTML=Object.keys(cart).map(function(id){
+      var p=byId(id);if(!p)return '';
+      return '<div class="mh-co-item"><span>'+p.name+' × '+cart[id]+'</span><strong>'+money(p.price*cart[id])+'</strong></div>';
+    }).join('');
+    coTotal.textContent=money(cartTotal());
+    closeDrawer();
+    co.hidden=false;
+  }
+  root.querySelector('#mh-cart-checkout').addEventListener('click',openCheckout);
+
+  coForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=true;
+    ['nombre','email','telefono','comuna'].forEach(function(name){
+      var el=coForm.elements[name];
+      var val=(el.value||'').trim();
+      var bad=!val||(name==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val));
+      el.classList.toggle('mh-invalid',bad);
+      if(bad)ok=false;
+    });
+    coErr.hidden=ok;
+    if(!ok)return;
+    coGrid.hidden=true;coDone.hidden=false;
+    cart={};saveCart(cart);renderCart();updateCardButtons();
+  });
+
+  /* Cerrar modales (scrim, botón x, data-close) */
+  [qv,co].forEach(function(m){
+    m.addEventListener('click',function(e){
+      if(e.target.hasAttribute('data-close')||e.target.classList.contains('mh-modal-scrim')){m.hidden=true;}
+    });
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key!=='Escape')return;
+    if(!qv.hidden)qv.hidden=true;
+    else if(!co.hidden)co.hidden=true;
+    else if(drawer.classList.contains('is-open'))closeDrawer();
+    else if(filters.classList.contains('is-open'))closeFilters();
+  });
+
+  /* ---------- Init ---------- */
+  render();renderCart();syncFab();
 })();
 </script>
 	</body>
