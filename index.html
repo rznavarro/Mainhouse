@@ -3834,6 +3834,12 @@ var et_pb_box_shadow_elements = [];
     var b=p.banos>0?' · '+p.banos+' baño'+(p.banos>1?'s':''):'';
     return p.area+' m² · '+d+b;
   }
+  /* En la tarjeta: sin region ni m2 (solo dorm/banos). El detalle completo va en el modal. */
+  function cardSpec(p){
+    var d=p.dorm>0?p.dorm+' dorm':'1 ambiente';
+    var b=p.banos>0?' · '+p.banos+' baño'+(p.banos>1?'s':''):'';
+    return d+b;
+  }
 
   function cardHTML(p){
     var inCart=!!cart[p.id];
@@ -3843,10 +3849,9 @@ var et_pb_box_shadow_elements = [];
         '<img src="'+p.img+'" alt="'+p.name+'" loading="lazy" />'+
       '</div>'+
       '<div class="mh-shop-cardbody">'+
-        '<h3 class="mh-shop-cardtitle">'+p.name+' — '+p.area+' m²</h3>'+
-        '<p class="mh-shop-cardsub">'+p.region+' · llave en mano</p>'+
+        '<h3 class="mh-shop-cardtitle">'+p.name+'</h3>'+
         '<p class="mh-shop-price">'+money(p.price)+'</p>'+
-        '<p class="mh-shop-specs">'+specLine(p)+'</p>'+
+        '<p class="mh-shop-specs">'+cardSpec(p)+'</p>'+
         '<div class="mh-shop-cardfoot">'+
           '<button type="button" class="mh-shop-detail" data-act="detail">Ver detalle</button>'+
           '<button type="button" class="mh-shop-add'+(inCart?' is-in':'')+'" data-act="add">'+
