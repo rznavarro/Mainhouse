@@ -2259,6 +2259,98 @@ html body #page-container .mh-contact-formcard .et_pb_contact_submit.et_pb_butto
 }
 </style>
 
+<style id="mainhouse-kitscroll">
+/* ============================================================
+   MAIN HOUSE — "¿Que es un kit basico?" con animacion de scroll
+   (port vanilla del Container Scroll de Aceternity: la tarjeta
+   se despliega desde una inclinacion 3D al hacer scroll).
+   Reversible: borrar este <style>, el <script id="mainhouse-
+   kitscroll-js"> y la <section id="kit">.
+   ============================================================ */
+.mh-scroll{
+  background:#0c0a09;
+  color:#f3f0ea;
+  font-family:var(--mh-sans),system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  overflow:hidden;
+}
+.mh-scroll *{box-sizing:border-box;}
+.mh-scroll-stage{
+  position:relative;
+  width:92%;max-width:1080px;margin:0 auto;
+  padding:clamp(72px,12vh,140px) 0 clamp(64px,10vh,120px);
+  display:flex;flex-direction:column;align-items:center;
+  perspective:1200px;
+}
+
+/* Cabecera (sube al hacer scroll) */
+.mh-scroll-header{
+  max-width:820px;text-align:center;
+  transform:translateY(calc(var(--p,0) * -70px));
+  will-change:transform;
+}
+.mh-scroll-logo{
+  width:42px;height:42px;object-fit:contain;display:block;margin:0 auto 18px;opacity:.9;
+}
+.mh-scroll-header h2{
+  font-family:var(--mh-serif),Georgia,serif;font-weight:600;
+  font-size:clamp(34px,5.6vw,64px);line-height:1.05;letter-spacing:-.01em;
+  color:#fff;margin:0;
+}
+
+/* Tarjeta enmarcada (se inclina/escala con el scroll) */
+.mh-scroll-card{
+  width:100%;max-width:1000px;
+  margin:clamp(34px,6vh,66px) auto 0;
+  border:5px solid #3b352c;
+  background:#1b1713;
+  border-radius:30px;
+  padding:clamp(10px,1.4vw,20px);
+  box-shadow:0 0 #0000004d,0 9px 20px #0000004a,0 37px 37px #00000042,0 84px 50px #00000026,0 149px 60px #0000000a;
+  transform:rotateX(calc((1 - var(--p,0)) * 22deg)) scale(calc(1.05 - var(--p,0) * .05));
+  transform-origin:50% 12%;
+  transition:transform .06s linear;
+  will-change:transform;
+}
+.mh-scroll-panel{
+  background:#100e0c;
+  border-radius:20px;
+  padding:clamp(26px,3.6vw,52px);
+}
+.mh-scroll-lead{
+  font-family:var(--mh-sans);
+  font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mh-gold,#c5a880);margin:0 0 16px;
+}
+.mh-scroll-body{
+  font-size:clamp(15px,1.5vw,17px);line-height:1.78;
+  color:rgba(255,255,255,.78);margin:0 0 clamp(26px,3.4vw,40px);max-width:72ch;
+}
+.mh-scroll-specs{
+  list-style:none;margin:0;padding:0;
+  border-top:1px solid rgba(255,255,255,.14);
+}
+.mh-scroll-specs li{
+  display:flex;justify-content:space-between;align-items:baseline;gap:24px;
+  padding:15px 0;border-bottom:1px solid rgba(255,255,255,.08);
+  font-family:var(--mh-mono,ui-monospace),monospace;font-size:13px;
+}
+.mh-scroll-specs li span:first-child{color:var(--mh-gold,#c5a880);letter-spacing:.04em;flex:0 0 auto;}
+.mh-scroll-specs li span:last-child{color:#f3f0ea;text-align:right;}
+
+@media (max-width:768px){
+  .mh-scroll-stage{padding:clamp(56px,9vh,96px) 0;perspective:900px;}
+  .mh-scroll-card{
+    border-width:4px;border-radius:22px;
+    transform:rotateX(calc((1 - var(--p,0)) * 13deg)) scale(calc(.92 + var(--p,0) * .08));
+  }
+  .mh-scroll-specs li{flex-direction:column;gap:3px;font-size:12px;}
+  .mh-scroll-specs li span:last-child{text-align:left;}
+}
+@media (prefers-reduced-motion:reduce){
+  .mh-scroll-header,.mh-scroll-card{transform:none!important;transition:none!important;}
+}
+</style>
+
 </head>
 <body data-rsssl=1 class="home wp-singular page-template-default page page-id-21244404 wp-theme-Divi dipi-shrink-header slide_up_below dipi-custom-archive-page dipi-archive- dipi-fix-search-icon dipi-anim-preload et-tb-has-template et-tb-has-footer et_pb_button_helper_class et_transparent_nav et_fixed_nav et_show_nav et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_header_style_left et_pb_svg_logo et_cover_background et_pb_gutter windows et_pb_gutters3 et_pb_pagebuilder_layout et_smooth_scroll et_no_sidebar et_divi_theme et-db">
 	<div id="page-container">
@@ -2710,63 +2802,28 @@ html body #page-container .mh-contact-formcard .et_pb_contact_submit.et_pb_butto
 	</div>
 </section>
 <!-- FIN BLOQUE NUEVO -->
-<div class="et_pb_section et_pb_section_7 et_pb_with_background et_section_regular" >
-				
-				
-				
-				
-				
-				
-				<div class="et_pb_row et_pb_row_3">
-				<div class="et_pb_column et_pb_column_1_2 et_pb_column_5  et_pb_css_mix_blend_mode_passthrough">
-				
-				
-				
-				
-				<div class="et_pb_module et_pb_image et_pb_image_0">
-				
-				
-				
-				
-				<span class="et_pb_image_wrap "><img loading="lazy" decoding="async" width="512" height="512" src="https://mainhouse.cl/wp-content/uploads/2024/03/cropped-favicon.png" alt="" title="cropped-favicon.png" srcset="https://mainhouse.cl/wp-content/uploads/2024/03/cropped-favicon.png 512w, https://mainhouse.cl/wp-content/uploads/2024/03/cropped-favicon-480x480.png 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) 512px, 100vw" class="wp-image-28" /></span>
-			</div><div class="et_pb_module et_pb_text et_pb_text_4  et_pb_text_align_left et_pb_bg_layout_light">
-				
-				
-				
-				
-				<div class="et_pb_text_inner"><h2>¿Qué es un<br />kit básico?</h2></div>
+<section id="kit" class="mh-scroll" aria-label="&iquest;Qu&eacute; es un kit b&aacute;sico?">
+	<div class="mh-scroll-stage">
+		<div class="mh-scroll-header">
+			<img class="mh-scroll-logo" src="https://mainhouse.cl/wp-content/uploads/2024/03/cropped-favicon.png" alt="Main House" width="512" height="512" loading="lazy" />
+			<h2>&iquest;Qu&eacute; es un kit b&aacute;sico?</h2>
+		</div>
+		<div class="mh-scroll-card">
+			<div class="mh-scroll-panel">
+				<h3 class="mh-scroll-lead">Un kit b&aacute;sico contiene:</h3>
+				<p class="mh-scroll-body">Paneles exteriores forrados con madera seca tipo media luna o tinglado de 5 pulgadas, m&aacute;s fieltro; tabiquer&iacute;a de 2&times;3 forrada con vulcanita por un lado del panel; techo de zinc acanalado calibre 0,35; cerchas, caballetes, costaneras de 2&times;3; fieltro para techo; y madera seca, para el cierre de cerchas (frontones). Altura interior: 2,40 m.</p>
+				<ul class="mh-scroll-specs">
+					<li><span>Revestimiento</span><span>Madera seca media luna / tinglado 5"</span></li>
+					<li><span>Tabiquer&iacute;a</span><span>2&times;3 forrada en vulcanita</span></li>
+					<li><span>Techumbre</span><span>Zinc acanalado cal. 0,35</span></li>
+					<li><span>Estructura</span><span>Cerchas y costaneras 2&times;3</span></li>
+					<li><span>Altura interior</span><span>2,40 m</span></li>
+				</ul>
 			</div>
-			</div><div class="et_pb_column et_pb_column_1_2 et_pb_column_6  et_pb_css_mix_blend_mode_passthrough et-last-child">
-				
-				
-				
-				
-				<div class="et_pb_module et_pb_text et_pb_text_5  et_pb_text_align_left et_pb_bg_layout_light">
-				
-				
-				
-				
-				<div class="et_pb_text_inner"><b>Un kit básico contiene:</b><br />
-Paneles exteriores forrados con madera seca tipo media luna o tinglado de 5 pulgadas, más fieltro; tabiquería de 2×3 forrada con vulcanita por un lado del panel; techo de zinc acanalado calibre 0,35; cerchas, caballetes, costaneras de 2×3; fieltro para techo; y madera seca, para el cierre de cerchas (frontones). Altura interior: 2,40 m.</div>
-			</div>
-<!-- BLOQUE NUEVO: revisar copy (mismos datos de arriba, solo reordenados como ficha técnica) -->
-<div class="mh-spec">
-	<div class="mh-spec-item"><span>Revestimiento</span><span>Madera seca media luna / tinglado 5"</span></div>
-	<div class="mh-spec-item"><span>Tabiquería</span><span>2×3 forrada en vulcanita</span></div>
-	<div class="mh-spec-item"><span>Techumbre</span><span>Zinc acanalado cal. 0,35</span></div>
-	<div class="mh-spec-item"><span>Estructura</span><span>Cerchas y costaneras 2×3</span></div>
-	<div class="mh-spec-item"><span>Altura interior</span><span>2,40 m</span></div>
-</div>
-<!-- FIN BLOQUE NUEVO -->
-			</div>
-				
-				
-				
-				
-			</div>
-				
-				
-			</div><div id="fotos" class="et_pb_section et_pb_section_8 et_section_regular" >
+		</div>
+	</div>
+</section>
+			<div id="fotos" class="et_pb_section et_pb_section_8 et_section_regular" >
 				
 				
 				
@@ -4073,6 +4130,32 @@ var et_pb_box_shadow_elements = [];
 
   /* ---------- Init ---------- */
   render();renderCart();syncFab();
+})();
+</script>
+
+<script id="mainhouse-kitscroll-js">
+(function(){
+  var sec=document.getElementById('kit');
+  if(!sec)return;
+  var stage=sec.querySelector('.mh-scroll-stage')||sec;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    sec.style.setProperty('--p','1');return;
+  }
+  var ticking=false;
+  function update(){
+    ticking=false;
+    var r=stage.getBoundingClientRect();
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    var start=vh*0.82;   /* empieza cuando el borde superior entra al 82% del viewport */
+    var range=vh*0.80;   /* completa la animacion tras ~0.8 de viewport de scroll */
+    var p=(start-r.top)/range;
+    p=p<0?0:(p>1?1:p);
+    sec.style.setProperty('--p',p.toFixed(4));
+  }
+  function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll,{passive:true});
+  update();
 })();
 </script>
 	</body>
